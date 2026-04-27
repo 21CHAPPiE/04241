@@ -1,0 +1,33 @@
+{
+  "artifacts": [
+    {
+      "kind": "csv",
+      "name": "forecast",
+      "path": "H:\\04241\\doc\\restful\\examples\\pred-src\\runs\\huadong\\forecast\\forecast\\20260427T120540Z-c7c6818c\\forecast.csv",
+      "size_bytes": 16879868
+    },
+    {
+      "kind": "text",
+      "name": "summary",
+      "path": "H:\\04241\\doc\\restful\\examples\\pred-src\\runs\\huadong\\forecast\\forecast\\20260427T120540Z-c7c6818c\\summary.txt",
+      "size_bytes": 56
+    },
+    {
+      "kind": "json",
+      "name": "forecast_metrics",
+      "path": "H:\\04241\\doc\\restful\\examples\\pred-src\\runs\\huadong\\forecast\\forecast\\20260427T120540Z-c7c6818c\\forecast_metrics.json",
+      "size_bytes": 532
+    }
+  ],
+  "completed_at": "2026-04-27T12:06:16.965185+00:00",
+  "inputs": {
+    "dataset_path": "H:\\04241\\HuadongCode\\data\\basin_001_hourly.csv"
+  },
+  "operation": "forecast",
+  "options": {},
+  "run_dir": "H:\\04241\\doc\\restful\\examples\\pred-src\\runs\\huadong\\forecast\\forecast\\20260427T120540Z-c7c6818c",
+  "run_id": "20260427T120540Z-c7c6818c",
+  "started_at": "2026-04-27T12:05:40.671759+00:00",
+  "status": "completed",
+  "summary": "Forecasted 146732 steps with 4 models; best RMSE=118.98."
+}

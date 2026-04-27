@@ -1,0 +1,14 @@
+{
+  "status": "completed",
+  "operation": "ensemble",
+  "run_id": "20260427T120617Z-c290b658",
+  "run_dir": "H:\\04241\\doc\\restful\\examples\\pred-src\\runs\\huadong\\ensemble\\ensemble\\20260427T120617Z-c290b658",
+  "output_manifest_path": "H:\\04241\\doc\\restful\\examples\\pred-src\\runs\\huadong\\ensemble\\ensemble\\20260427T120617Z-c290b658\\manifest.json",
+  "artifact_paths": {
+    "ensemble": "H:\\04241\\doc\\restful\\examples\\pred-src\\runs\\huadong\\ensemble\\ensemble\\20260427T120617Z-c290b658\\ensemble.csv",
+    "summary": "H:\\04241\\doc\\restful\\examples\\pred-src\\runs\\huadong\\ensemble\\ensemble\\20260427T120617Z-c290b658\\summary.txt",
+    "ensemble_details": "H:\\04241\\doc\\restful\\examples\\pred-src\\runs\\huadong\\ensemble\\ensemble\\20260427T120617Z-c290b658\\ensemble_details.json",
+    "manifest": "H:\\04241\\doc\\restful\\examples\\pred-src\\runs\\huadong\\ensemble\\ensemble\\20260427T120617Z-c290b658\\manifest.json"
+  },
+  "small_summary": "Ensembled 4 models using bma; consistency=0.50."
+}

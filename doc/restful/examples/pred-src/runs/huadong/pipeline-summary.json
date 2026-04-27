@@ -1,0 +1,8 @@
+{
+  "status": "completed",
+  "forecast_csv": "H:\\04241\\doc\\restful\\examples\\pred-src\\runs\\huadong\\forecast\\forecast\\20260427T120540Z-c7c6818c\\forecast.csv",
+  "ensemble_csv": "H:\\04241\\doc\\restful\\examples\\pred-src\\runs\\huadong\\ensemble\\ensemble\\20260427T120617Z-c290b658\\ensemble.csv",
+  "corrected_csv": "H:\\04241\\doc\\restful\\examples\\pred-src\\runs\\huadong\\correction\\correction\\20260427T120620Z-566b7a92\\corrected.csv",
+  "risk_json": "H:\\04241\\doc\\restful\\examples\\pred-src\\runs\\huadong\\risk\\risk\\20260427T120627Z-a23db3ab\\risk.json",
+  "warning_json": "H:\\04241\\doc\\restful\\examples\\pred-src\\runs\\huadong\\warning\\warning\\20260427T120628Z-9cf7cfaf\\warning.json"
+}

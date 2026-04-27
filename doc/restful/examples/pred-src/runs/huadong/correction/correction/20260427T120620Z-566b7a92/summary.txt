@@ -1,0 +1,1 @@
+Error metrics: NSE=0.692, Bias=-1.06, RMSE=127.70. Apply positive bias correction to reduce systematic under-forecasting. Tune peak handling; peak error remains non-zero. Validate data quality around anomalies (spike=554, drift=603).

@@ -1,0 +1,9 @@
+{
+  "file_path": "H:\\04241\\doc\\restful\\examples\\pred-src\\runs\\huadong\\correction\\correction\\20260427T120620Z-566b7a92\\corrected.csv",
+  "output_root": "H:\\04241\\doc\\restful\\examples\\pred-src\\runs\\huadong\\warning",
+  "options": {
+    "forecast_column": "corrected_forecast",
+    "warning_threshold": 300.0,
+    "lead_time_hours": 24
+  }
+}

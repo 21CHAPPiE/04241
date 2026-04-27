@@ -1,0 +1,75 @@
+<mxfile host="app.diagrams.net" modified="2026-04-27T20:10:00.000Z" agent="OpenAI Codex" version="24.7.17" type="device">
+  <diagram id="pred-src-instance-flow" name="实例化预测链参数传递">
+    <mxGraphModel dx="2200" dy="1400" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2200" pageHeight="1600" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="2" value="pred-src 实例化预测链参数传递流程图&#10;每个模块均按“输入格式 - 模块名 - 输出格式”展示" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D9EAF7;strokeColor=#5B9BD5;fontSize=20;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="20" width="760" height="70" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="10" value="输入格式：&#10;dataset_path: H:\04241\HuadongCode\data\basin_001_hourly.csv&#10;output_root: ...\runs\huadong\dataset&#10;options: {}&#10;&#10;模块名：&#10;POST /huadong/dataset/profile&#10;&#10;输出格式：&#10;artifact_paths.dataset_profile&#10;artifact_paths.summary&#10;artifact_paths.dataset_profile_summary&#10;artifact_paths.manifest" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;fontSize=13;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="120" y="140" width="420" height="220" as="geometry"/>
+        </mxCell>
+        <mxCell id="11" value="输入格式：&#10;output_root: ...\runs\huadong\assets&#10;options: {}&#10;&#10;模块名：&#10;POST /huadong/model-assets/profile&#10;&#10;输出格式：&#10;artifact_paths.model_assets_profile&#10;artifact_paths.summary&#10;artifact_paths.model_assets_profile_summary&#10;artifact_paths.manifest" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E2F0D9;strokeColor=#70AD47;fontSize=13;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="620" y="140" width="420" height="220" as="geometry"/>
+        </mxCell>
+        <mxCell id="12" value="输入格式：&#10;dataset_path: H:\04241\HuadongCode\data\basin_001_hourly.csv&#10;output_root: ...\runs\huadong\analysis&#10;options.column: streamflow&#10;&#10;模块名：&#10;POST /huadong/analysis&#10;&#10;输出格式：&#10;artifact_paths.analysis&#10;artifact_paths.summary&#10;artifact_paths.manifest" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE4D6;strokeColor=#C55A11;fontSize=13;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="140" width="420" height="220" as="geometry"/>
+        </mxCell>
+        <mxCell id="13" value="输入格式：&#10;dataset_path: H:\04241\HuadongCode\data\basin_001_hourly.csv&#10;output_root: ...\runs\huadong\forecast&#10;options: {}&#10;&#10;模块名：&#10;POST /huadong/forecast&#10;&#10;输出格式：&#10;artifact_paths.forecast = forecast.csv&#10;artifact_paths.summary&#10;artifact_paths.forecast_metrics&#10;artifact_paths.manifest" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E2F0D9;strokeColor=#70AD47;fontSize=13;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="1620" y="140" width="420" height="220" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="14" value="输入格式：&#10;file_path = forecast.artifact_paths.forecast&#10;output_root: ...\runs\huadong\ensemble&#10;options.method: bma&#10;options.observation_dataset: basin_001_hourly.csv&#10;options.observation_column: streamflow&#10;&#10;模块名：&#10;POST /huadong/ensemble&#10;&#10;输出格式：&#10;artifact_paths.ensemble = ensemble.csv&#10;artifact_paths.summary&#10;artifact_paths.ensemble_details&#10;artifact_paths.manifest" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E2F0D9;strokeColor=#70AD47;fontSize=13;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="360" y="470" width="460" height="250" as="geometry"/>
+        </mxCell>
+        <mxCell id="15" value="输入格式：&#10;file_path = ensemble.artifact_paths.ensemble&#10;output_root: ...\runs\huadong\correction&#10;options.observation_dataset: basin_001_hourly.csv&#10;options.observation_column: streamflow&#10;&#10;模块名：&#10;POST /huadong/correction&#10;&#10;输出格式：&#10;artifact_paths.correction = corrected.csv&#10;artifact_paths.summary&#10;artifact_paths.correction_details&#10;artifact_paths.manifest" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E2F0D9;strokeColor=#70AD47;fontSize=13;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="980" y="470" width="460" height="250" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="16" value="输入格式：&#10;file_path = correction.artifact_paths.correction&#10;output_root: ...\runs\huadong\risk&#10;options.thresholds.flood: 300.0&#10;options.thresholds.severe: 500.0&#10;options.model_columns: [corrected_forecast]&#10;&#10;模块名：&#10;POST /huadong/risk&#10;&#10;输出格式：&#10;artifact_paths.risk = risk.json&#10;artifact_paths.summary&#10;artifact_paths.manifest" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE4D6;strokeColor=#C55A11;fontSize=13;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="300" y="860" width="460" height="250" as="geometry"/>
+        </mxCell>
+        <mxCell id="17" value="输入格式：&#10;file_path = correction.artifact_paths.correction&#10;output_root: ...\runs\huadong\warning&#10;options.forecast_column: corrected_forecast&#10;options.warning_threshold: 300.0&#10;options.lead_time_hours: 24&#10;&#10;模块名：&#10;POST /huadong/warning&#10;&#10;输出格式：&#10;artifact_paths.warning = warning.json&#10;artifact_paths.summary&#10;artifact_paths.manifest" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FCE4D6;strokeColor=#C55A11;fontSize=13;align=left;spacingLeft=8;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="860" width="460" height="250" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="30" value="继续使用原始 dataset_path" style="endArrow=block;html=1;rounded=0;strokeColor=#7F7F7F;strokeWidth=2;fontSize=12;" edge="1" parent="1" source="10" target="11">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="31" value="analysis 为旁路分析&#10;不回流主链" style="endArrow=block;html=1;rounded=0;strokeColor=#C55A11;strokeWidth=2;fontSize=12;" edge="1" parent="1" source="11" target="12">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="32" value="继续使用原始 dataset_path" style="endArrow=block;html=1;rounded=0;strokeColor=#7F7F7F;strokeWidth=2;fontSize=12;" edge="1" parent="1" source="12" target="13">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="33" value="artifact_paths.forecast -> file_path" style="endArrow=block;html=1;rounded=0;strokeColor=#4472C4;strokeWidth=2;fontSize=12;" edge="1" parent="1" source="13" target="14">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="34" value="artifact_paths.ensemble -> file_path" style="endArrow=block;html=1;rounded=0;strokeColor=#4472C4;strokeWidth=2;fontSize=12;" edge="1" parent="1" source="14" target="15">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="35" value="artifact_paths.correction -> file_path" style="endArrow=block;html=1;rounded=0;strokeColor=#4472C4;strokeWidth=2;fontSize=12;" edge="1" parent="1" source="15" target="16">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="36" value="artifact_paths.correction -> file_path" style="endArrow=block;html=1;rounded=0;strokeColor=#4472C4;strokeWidth=2;fontSize=12;" edge="1" parent="1" source="15" target="17">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="40" value="终端输出：risk.json" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 4;fillColor=#F8F8F8;strokeColor=#A6A6A6;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="340" y="1140" width="200" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="41" value="终端输出：warning.json" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;dashPattern=8 4;fillColor=#F8F8F8;strokeColor=#A6A6A6;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="1140" width="220" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="42" style="endArrow=oval;html=1;rounded=0;strokeColor=#A6A6A6;dashed=1;" edge="1" parent="1" source="16" target="40">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="43" style="endArrow=oval;html=1;rounded=0;strokeColor=#A6A6A6;dashed=1;" edge="1" parent="1" source="17" target="41">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

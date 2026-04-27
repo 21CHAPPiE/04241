@@ -1,0 +1,9 @@
+{
+  "file_path": "H:\\04241\\doc\\restful\\examples\\pred-src\\runs\\huadong\\forecast\\forecast\\20260427T120540Z-c7c6818c\\forecast.csv",
+  "output_root": "H:\\04241\\doc\\restful\\examples\\pred-src\\runs\\huadong\\ensemble",
+  "options": {
+    "method": "bma",
+    "observation_dataset": "H:\\04241\\HuadongCode\\data\\basin_001_hourly.csv",
+    "observation_column": "streamflow"
+  }
+}

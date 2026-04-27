@@ -1,0 +1,19 @@
+{
+  "gateway_base_url": "http://127.0.0.1:8010",
+  "dataset_path": "H:\\04241\\HuadongCode\\data\\basin_001_hourly.csv",
+  "output_root": "H:\\04241\\doc\\restful\\examples\\pred-src\\runs\\huadong",
+  "analysis_column": "streamflow",
+  "ensemble_method": "bma",
+  "observation_dataset": "H:\\04241\\HuadongCode\\data\\basin_001_hourly.csv",
+  "observation_column": "streamflow",
+  "risk_thresholds": {
+    "flood": 300.0,
+    "severe": 500.0
+  },
+  "risk_model_columns": [
+    "corrected_forecast"
+  ],
+  "warning_forecast_column": "corrected_forecast",
+  "warning_threshold": 300.0,
+  "warning_lead_time_hours": 24
+}

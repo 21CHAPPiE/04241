@@ -1,0 +1,6 @@
+{
+  "status": "ok",
+  "service": "huadong-rest",
+  "protocol": "rest",
+  "mcp_compatibility": "preserved"
+}

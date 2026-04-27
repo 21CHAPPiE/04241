@@ -1,0 +1,1 @@
+unknown/streamflow: n=146732, mean=235.94, std=230.29. Trend=increasing (significant). Dominant cycle ~359.6 days. Mutation detected.

@@ -1,0 +1,37 @@
+{
+  "artifacts": [
+    {
+      "kind": "csv",
+      "name": "ensemble",
+      "path": "H:\\04241\\doc\\restful\\examples\\pred-src\\runs\\huadong\\ensemble\\ensemble\\20260427T120617Z-c290b658\\ensemble.csv",
+      "size_bytes": 6073243
+    },
+    {
+      "kind": "text",
+      "name": "summary",
+      "path": "H:\\04241\\doc\\restful\\examples\\pred-src\\runs\\huadong\\ensemble\\ensemble\\20260427T120617Z-c290b658\\summary.txt",
+      "size_bytes": 47
+    },
+    {
+      "kind": "json",
+      "name": "ensemble_details",
+      "path": "H:\\04241\\doc\\restful\\examples\\pred-src\\runs\\huadong\\ensemble\\ensemble\\20260427T120617Z-c290b658\\ensemble_details.json",
+      "size_bytes": 7809718
+    }
+  ],
+  "completed_at": "2026-04-27T12:06:20.642925+00:00",
+  "inputs": {
+    "file_path": "H:\\04241\\doc\\restful\\examples\\pred-src\\runs\\huadong\\forecast\\forecast\\20260427T120540Z-c7c6818c\\forecast.csv"
+  },
+  "operation": "ensemble",
+  "options": {
+    "method": "bma",
+    "observation_column": "streamflow",
+    "observation_dataset": "H:\\04241\\HuadongCode\\data\\basin_001_hourly.csv"
+  },
+  "run_dir": "H:\\04241\\doc\\restful\\examples\\pred-src\\runs\\huadong\\ensemble\\ensemble\\20260427T120617Z-c290b658",
+  "run_id": "20260427T120617Z-c290b658",
+  "started_at": "2026-04-27T12:06:17.115176+00:00",
+  "status": "completed",
+  "summary": "Ensembled 4 models using bma; consistency=0.50."
+}

@@ -1,0 +1,5 @@
+{
+  "dataset_path": "H:\\04241\\HuadongCode\\data\\basin_001_hourly.csv",
+  "output_root": "H:\\04241\\doc\\restful\\examples\\pred-src\\runs\\huadong\\forecast",
+  "options": {}
+}
