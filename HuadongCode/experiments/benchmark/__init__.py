@@ -1,0 +1,2 @@
+"""FastMCP benchmark scenarios."""
+

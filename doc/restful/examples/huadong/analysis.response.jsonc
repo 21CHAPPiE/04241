@@ -1,0 +1,13 @@
+{
+  "status": "completed",
+  "operation": "data-analysis",
+  "run_id": "20260425T080421Z-8076f33c",
+  "run_dir": "H:\\0424\\doc\\restful\\outputs\\huadong\\analysis\\data-analysis\\20260425T080421Z-8076f33c",
+  "output_manifest_path": "H:\\0424\\doc\\restful\\outputs\\huadong\\analysis\\data-analysis\\20260425T080421Z-8076f33c\\manifest.json",
+  "artifact_paths": {
+    "analysis": "H:\\0424\\doc\\restful\\outputs\\huadong\\analysis\\data-analysis\\20260425T080421Z-8076f33c\\data_analysis.json", // 趋势/周期/突变分析结果
+    "summary": "H:\\0424\\doc\\restful\\outputs\\huadong\\analysis\\data-analysis\\20260425T080421Z-8076f33c\\summary.txt",
+    "manifest": "H:\\0424\\doc\\restful\\outputs\\huadong\\analysis\\data-analysis\\20260425T080421Z-8076f33c\\manifest.json"
+  },
+  "small_summary": "unknown/streamflow: n=146732, mean=235.94, std=230.29. Trend=increasing (significant). Dominant cycle ~359.6 days. Mutation detected."
+}

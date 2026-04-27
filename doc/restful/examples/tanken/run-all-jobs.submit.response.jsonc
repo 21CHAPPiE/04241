@@ -1,0 +1,14 @@
+{
+  "job_id": "f6e5d4c3b2a1", // 全场景运行任务编号
+  "status": "queued",
+  "submitted_at": "2026-04-26T08:31:00+00:00",
+  "started_at": null,
+  "completed_at": null,
+  "operation": "run-all-cases", // 任务类型：运行全部场景
+  "input": {
+    "reservoir_config_path": null,
+    "persist_result": false
+  },
+  "result": null,
+  "error": null
+}

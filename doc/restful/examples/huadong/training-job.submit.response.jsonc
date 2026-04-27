@@ -1,0 +1,16 @@
+{
+  "job_id": "8d8b8a8f12345678", // 任务编号，后续轮询用
+  "status": "queued", // 当前状态：排队中
+  "submitted_at": "2026-04-25T17:20:00+00:00", // 提交时间
+  "started_at": null, // 尚未开始
+  "completed_at": null, // 尚未完成
+  "operation": "training", // 任务类型
+  "input": {
+    "dataset_path": "H:\\0424\\HuadongCode\\data\\basin_001_hourly.csv",
+    "file_path": null,
+    "output_root": "H:\\0424\\doc\\restful\\outputs\\huadong\\training",
+    "options": {}
+  },
+  "result": null, // 第一跳没有最终结果
+  "error": null // 没有错误
+}

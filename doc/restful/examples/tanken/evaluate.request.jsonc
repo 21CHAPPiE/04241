@@ -1,0 +1,10 @@
+{
+  "event_csv_path": "H:\\0424\\TanKengCode\\data\\flood_event\\2024072617.csv",
+  "reservoir_config_path": null,
+  "target_outflow": 2283.657,
+  "module_type": "constant_release",
+  "module_parameters": {
+    "target_release": 2283.657
+  },
+  "eco_min_flow": 50.0 // 生态最小流量约束
+}

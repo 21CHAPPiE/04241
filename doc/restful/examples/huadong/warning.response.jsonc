@@ -1,0 +1,13 @@
+{
+  "status": "completed",
+  "operation": "warning",
+  "run_id": "20260425T080437Z-7357190c",
+  "run_dir": "H:\\0424\\doc\\restful\\outputs\\huadong\\warning\\warning\\20260425T080437Z-7357190c",
+  "output_manifest_path": "H:\\0424\\doc\\restful\\outputs\\huadong\\warning\\warning\\20260425T080437Z-7357190c\\manifest.json",
+  "artifact_paths": {
+    "warning": "H:\\0424\\doc\\restful\\outputs\\huadong\\warning\\warning\\20260425T080437Z-7357190c\\warning.json", // 预警主结果
+    "summary": "H:\\0424\\doc\\restful\\outputs\\huadong\\warning\\warning\\20260425T080437Z-7357190c\\summary.txt",
+    "manifest": "H:\\0424\\doc\\restful\\outputs\\huadong\\warning\\warning\\20260425T080437Z-7357190c\\manifest.json"
+  },
+  "small_summary": "Flood=red, drought=blue for 146732 forecast steps."
+}

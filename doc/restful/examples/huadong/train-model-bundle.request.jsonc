@@ -1,0 +1,11 @@
+{
+  "dataset_path": "H:\\0424\\HuadongCode\\data\\basin_001_hourly.csv", // 训练用流域数据
+  "file_path": null,
+  "output_root": "H:\\0424\\doc\\restful\\outputs\\huadong\\bundle", // 训练产物目录
+  "options": {
+    "max_rows": 96, // 训练时最多读取的数据行数
+    "sequence_length": 4, // 序列模型窗口长度
+    "lstm_epochs": 1, // LSTM 训练轮数
+    "bundle_path": "H:\\0424\\doc\\restful\\outputs\\huadong\\bundle\\bundle.pt" // 资产包保存路径
+  }
+}

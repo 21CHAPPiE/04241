@@ -1,0 +1,4 @@
+{
+  "event_csv_path": "H:\\0424\\TanKengCode\\data\\flood_event\\2024072617.csv", // 事件过程数据
+  "reservoir_config_path": null // 水库配置路径；默认可为空
+}

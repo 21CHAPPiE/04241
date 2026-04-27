@@ -1,0 +1,6 @@
+{
+  "dataset_path": "H:\\0424\\HuadongCode\\data\\basin_001_hourly.csv", // 率定输入数据
+  "file_path": null,
+  "output_root": "H:\\0424\\doc\\restful\\outputs\\huadong\\calibration", // 率定输出目录
+  "options": {} // 当前通常使用默认率定参数
+}

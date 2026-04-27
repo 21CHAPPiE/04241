@@ -1,0 +1,12 @@
+{
+  "status": "ok", // 网关服务状态
+  "service": "unified-rest", // 统一网关服务名
+  "available_services": [
+    "huadong", // 华东水文能力
+    "tanken" // 滩坑调度能力
+  ],
+  "route_prefixes": {
+    "huadong": "/huadong", // 华东功能统一前缀
+    "tanken": "/tanken" // 滩坑功能统一前缀
+  }
+}

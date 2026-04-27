@@ -1,0 +1,28 @@
+{
+  "job_id": "hpo1234567890",
+  "status": "completed", // HPO 已完成
+  "submitted_at": "2026-04-27T08:11:00+00:00",
+  "started_at": "2026-04-27T08:11:01+00:00",
+  "completed_at": "2026-04-27T08:11:06+00:00",
+  "operation": "hpo",
+  "input": {
+    "dataset_path": "H:\\0424\\HuadongCode\\data\\basin_001_hourly.csv",
+    "file_path": null,
+    "output_root": "H:\\0424\\doc\\restful\\outputs\\huadong\\hpo",
+    "options": {}
+  },
+  "result": {
+    "status": "completed",
+    "operation": "hpo",
+    "run_id": "20260425T080442Z-ef1133da",
+    "run_dir": "H:\\0424\\doc\\restful\\outputs\\huadong\\hpo\\hpo\\20260425T080442Z-ef1133da",
+    "output_manifest_path": "H:\\0424\\doc\\restful\\outputs\\huadong\\hpo\\hpo\\20260425T080442Z-ef1133da\\manifest.json",
+    "artifact_paths": {
+      "summary": "H:\\0424\\doc\\restful\\outputs\\huadong\\hpo\\hpo\\20260425T080442Z-ef1133da\\summary.txt", // 文本摘要
+      "hpo": "H:\\0424\\doc\\restful\\outputs\\huadong\\hpo\\hpo\\20260425T080442Z-ef1133da\\hpo.json", // 最优超参数结果
+      "manifest": "H:\\0424\\doc\\restful\\outputs\\huadong\\hpo\\hpo\\20260425T080442Z-ef1133da\\manifest.json"
+    },
+    "small_summary": "HPO smoke selected alpha=1.25 with RMSE=329.29."
+  },
+  "error": null
+}

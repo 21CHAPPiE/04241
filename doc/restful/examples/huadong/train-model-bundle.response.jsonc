@@ -1,0 +1,14 @@
+{
+  "status": "completed",
+  "operation": "train-model-bundle",
+  "run_id": "20260425T080346Z-432b5ec8",
+  "run_dir": "H:\\0424\\doc\\restful\\outputs\\huadong\\bundle\\train-model-bundle\\20260425T080346Z-432b5ec8",
+  "output_manifest_path": "H:\\0424\\doc\\restful\\outputs\\huadong\\bundle\\train-model-bundle\\20260425T080346Z-432b5ec8\\manifest.json",
+  "artifact_paths": {
+    "training_bundle_summary": "H:\\0424\\doc\\restful\\outputs\\huadong\\bundle\\train-model-bundle\\20260425T080346Z-432b5ec8\\training_bundle_summary.json", // 训练结果摘要
+    "summary": "H:\\0424\\doc\\restful\\outputs\\huadong\\bundle\\train-model-bundle\\20260425T080346Z-432b5ec8\\summary.txt",
+    "training_bundle_details": "H:\\0424\\doc\\restful\\outputs\\huadong\\bundle\\train-model-bundle\\20260425T080346Z-432b5ec8\\training_bundle_details.json", // 详细训练信息
+    "manifest": "H:\\0424\\doc\\restful\\outputs\\huadong\\bundle\\train-model-bundle\\20260425T080346Z-432b5ec8\\manifest.json"
+  },
+  "small_summary": "Trained and saved forecast model bundle."
+}

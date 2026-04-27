@@ -1,0 +1,14 @@
+{
+  "status": "completed", // 执行状态
+  "operation": "dataset-profile", // 当前操作名
+  "run_id": "20260425T080343Z-7fb57a68", // 本次执行唯一编号
+  "run_dir": "H:\\0424\\doc\\restful\\outputs\\huadong\\dataset\\dataset-profile\\20260425T080343Z-7fb57a68", // 本次运行目录
+  "output_manifest_path": "H:\\0424\\doc\\restful\\outputs\\huadong\\dataset\\dataset-profile\\20260425T080343Z-7fb57a68\\manifest.json", // manifest 文件路径
+  "artifact_paths": {
+    "dataset_profile": "H:\\0424\\doc\\restful\\outputs\\huadong\\dataset\\dataset-profile\\20260425T080343Z-7fb57a68\\dataset_profile.json", // 数据概况 JSON
+    "summary": "H:\\0424\\doc\\restful\\outputs\\huadong\\dataset\\dataset-profile\\20260425T080343Z-7fb57a68\\summary.txt", // 文本摘要
+    "dataset_profile_summary": "H:\\0424\\doc\\restful\\outputs\\huadong\\dataset\\dataset-profile\\20260425T080343Z-7fb57a68\\dataset_profile_summary.json", // 简版概况 JSON
+    "manifest": "H:\\0424\\doc\\restful\\outputs\\huadong\\dataset\\dataset-profile\\20260425T080343Z-7fb57a68\\manifest.json" // manifest 别名路径
+  },
+  "small_summary": "Loaded dataset profile for basin_hourly with 146732 rows." // 面向人阅读的短摘要
+}

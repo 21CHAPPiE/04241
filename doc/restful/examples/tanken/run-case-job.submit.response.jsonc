@@ -1,0 +1,16 @@
+{
+  "job_id": "a1b2c3d4e5f6", // 任务编号
+  "status": "queued", // 当前状态：排队中
+  "submitted_at": "2026-04-26T08:30:00+00:00",
+  "started_at": null,
+  "completed_at": null,
+  "operation": "run-case:6.4.2", // 本次是单场景运行任务
+  "input": {
+    "case_id": "6.4.2", // 运行的场景编号
+    "event_csv_path": "H:\\0424\\TanKengCode\\data\\flood_event\\2024061623.csv",
+    "reservoir_config_path": null,
+    "persist_result": false
+  },
+  "result": null,
+  "error": null
+}

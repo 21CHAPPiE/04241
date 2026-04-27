@@ -1,0 +1,10 @@
+{
+  "dataset_path": null,
+  "file_path": "H:\\0424\\doc\\restful\\outputs\\huadong\\forecast\\...\\forecast.csv", // 上一步 forecast 产物
+  "output_root": "H:\\0424\\doc\\restful\\outputs\\huadong\\ensemble",
+  "options": {
+    "method": "bma", // 集成方法，当前推荐 bma
+    "observation_dataset": "H:\\0424\\HuadongCode\\data\\basin_001_hourly.csv", // 观测数据路径
+    "observation_column": "streamflow" // 观测列名
+  }
+}

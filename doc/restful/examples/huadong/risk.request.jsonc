@@ -1,0 +1,14 @@
+{
+  "dataset_path": null,
+  "file_path": "H:\\0424\\doc\\restful\\outputs\\huadong\\correction\\...\\corrected.csv", // correction 输出 CSV
+  "output_root": "H:\\0424\\doc\\restful\\outputs\\huadong\\risk",
+  "options": {
+    "thresholds": {
+      "flood": 300.0, // 一般洪水阈值
+      "severe": 500.0 // 严重洪水阈值
+    },
+    "model_columns": [
+      "corrected_forecast" // 用于风险分析的预测列
+    ]
+  }
+}

@@ -1,0 +1,328 @@
+{
+  "contract_version": "1.0",
+  "workflow_source": "agents.huadong_workflow:HuadongWorkflowRunner",
+  "workflow_cli": "uv run python -m agents.run_huadong_workflow --scenario-id 6.3.1",
+  "mcp_server": "app.server",
+  "mcp_command": "uv run python -m app.server",
+  "execution_mode": "deterministic_agno_workflow_without_agent",
+  "notes": [
+    "The workflow uses agno.workflow.Workflow and agno.workflow.Step executors.",
+    "The workflow does not instantiate agno.agent.Agent and does not call an LLM.",
+    "MCP tool calls are launched through agno.tools.mcp.MCPTools.",
+    "Runtime artifacts are path-based and default to results/agno-workflow-runs."
+  ],
+  "supported_scenarios": [
+    "6.3.1",
+    "6.3.2",
+    "6.3.3",
+    "6.3.4"
+  ],
+  "workflow_input": {
+    "type": "object",
+    "required": [
+      "scenario_id"
+    ],
+    "properties": {
+      "scenario_id": {
+        "type": "string",
+        "description": "One of 6.3.1, 6.3.2, 6.3.3, 6.3.4. CLI also accepts all for batch mode.",
+        "example": "6.3.1"
+      },
+      "output_root": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "default": "results/agno-workflow-runs",
+        "description": "Root directory for workflow run artifacts."
+      },
+      "start_time": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "Optional override for scenario start time."
+      },
+      "end_time": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "Optional override for scenarios 6.3.1, 6.3.2, and 6.3.3."
+      },
+      "initial_end_time": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "Optional initial-window end override for scenario 6.3.4."
+      },
+      "updated_end_time": {
+        "type": [
+          "string",
+          "null"
+        ],
+        "description": "Optional updated-window end override for scenario 6.3.4."
+      },
+      "basin_dataset_path": {
+        "type": "string",
+        "default": "data/basin_001_hourly.csv"
+      },
+      "multistation_dataset_path": {
+        "type": "string",
+        "default": "data/rain_15stations_flow.csv"
+      }
+    }
+  },
+  "single_scenario_output": {
+    "type": "object",
+    "required": [
+      "workflow",
+      "request",
+      "scenario_id",
+      "scenario_dir",
+      "report",
+      "steps"
+    ],
+    "properties": {
+      "workflow": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "const": "Huadong MCP Fixed Workflow"
+          },
+          "mode": {
+            "const": "deterministic_mcp_steps"
+          },
+          "mcp_command": {
+            "type": "string"
+          }
+        }
+      },
+      "request": {
+        "$ref": "#/workflow_input"
+      },
+      "scenario_id": {
+        "type": "string"
+      },
+      "scenario_dir": {
+        "type": "string",
+        "description": "Directory containing workflow_report.json, workflow_report.md, sliced input CSVs, and tool run artifacts."
+      },
+      "report": {
+        "type": "object",
+        "required": [
+          "scenario_id",
+          "scenario_title",
+          "workflow_engine",
+          "workflow_steps",
+          "tool_calls",
+          "artifacts",
+          "result_summary"
+        ]
+      },
+      "steps": {
+        "type": "object",
+        "description": "Raw output objects for each Agno workflow step."
+      }
+    }
+  },
+  "batch_output": {
+    "type": "object",
+    "required": [
+      "workflow",
+      "scenario_ids",
+      "results"
+    ],
+    "properties": {
+      "workflow": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "const": "deterministic_mcp_steps_batch"
+          }
+        }
+      },
+      "scenario_ids": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "results": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/single_scenario_output"
+        }
+      }
+    }
+  },
+  "fixed_step_chain": [
+    {
+      "step": "prepare_inputs",
+      "tool": "local_dataset_slice",
+      "arguments": {
+        "scenario_id": "string",
+        "basin_dataset_path": "string",
+        "multistation_dataset_path": "string",
+        "time_window": "scenario defaults or request overrides"
+      },
+      "output": {
+        "scenario_dir": "string",
+        "tool_run_root": "string",
+        "input_slice": "string for 6.3.1/6.3.2/6.3.3",
+        "auxiliary_multistation_slice": "string for 6.3.3",
+        "initial_input_slice": "string for 6.3.4",
+        "updated_input_slice": "string for 6.3.4"
+      }
+    },
+    {
+      "step": "primary_dataset_profile",
+      "mcp_tool": "dataset_profile_from_paths",
+      "arguments": {
+        "dataset_path": "prepared basin input slice",
+        "output_root": "prepared tool_run_root",
+        "options_json": "{\"profile_type\":\"basin\"}"
+      },
+      "response_required_keys": [
+        "status",
+        "operation",
+        "run_id",
+        "output_manifest_path",
+        "artifact_paths",
+        "small_summary"
+      ]
+    },
+    {
+      "step": "auxiliary_dataset_profile",
+      "mcp_tool": "dataset_profile_from_paths",
+      "only_for": [
+        "6.3.3"
+      ],
+      "arguments": {
+        "dataset_path": "prepared auxiliary_multistation_slice",
+        "output_root": "prepared tool_run_root",
+        "options_json": "{\"profile_type\":\"multistation\"}"
+      }
+    },
+    {
+      "step": "model_asset_profile",
+      "mcp_tool": "model_asset_profile",
+      "arguments": {
+        "output_root": "prepared tool_run_root"
+      }
+    },
+    {
+      "step": "data_analysis",
+      "mcp_tool": "data_analysis_from_paths",
+      "only_for": [
+        "6.3.2"
+      ],
+      "arguments": {
+        "dataset_path": "prepared input_slice",
+        "output_root": "prepared tool_run_root",
+        "options_json": "{\"column\":\"streamflow\"}"
+      }
+    },
+    {
+      "step": "initial_forecast",
+      "mcp_tool": "forecast_from_paths",
+      "arguments": {
+        "dataset_path": "prepared input_slice, or initial_input_slice for 6.3.4",
+        "output_root": "prepared tool_run_root"
+      }
+    },
+    {
+      "step": "initial_ensemble",
+      "mcp_tool": "ensemble_from_paths",
+      "only_for": [
+        "6.3.3",
+        "6.3.4"
+      ],
+      "arguments": {
+        "file_path": "initial_forecast.artifact_paths.forecast",
+        "output_root": "prepared tool_run_root",
+        "options_json": "{\"method\":\"bma\",\"observation_dataset\":\"<input slice>\",\"observation_column\":\"streamflow\"}"
+      }
+    },
+    {
+      "step": "initial_correction",
+      "mcp_tool": "correction_from_paths",
+      "only_for": [
+        "6.3.3",
+        "6.3.4"
+      ],
+      "arguments": {
+        "file_path": "initial_ensemble.artifact_paths.ensemble",
+        "output_root": "prepared tool_run_root",
+        "options_json": "{\"observation_dataset\":\"<input slice>\",\"observation_column\":\"streamflow\"}"
+      }
+    },
+    {
+      "step": "updated_dataset_profile",
+      "mcp_tool": "dataset_profile_from_paths",
+      "only_for": [
+        "6.3.4"
+      ],
+      "arguments": {
+        "dataset_path": "prepared updated_input_slice",
+        "output_root": "prepared tool_run_root"
+      }
+    },
+    {
+      "step": "updated_forecast",
+      "mcp_tool": "forecast_from_paths",
+      "only_for": [
+        "6.3.4"
+      ],
+      "arguments": {
+        "dataset_path": "prepared updated_input_slice",
+        "output_root": "prepared tool_run_root/updated"
+      }
+    },
+    {
+      "step": "updated_ensemble",
+      "mcp_tool": "ensemble_from_paths",
+      "only_for": [
+        "6.3.4"
+      ],
+      "arguments": {
+        "file_path": "updated_forecast.artifact_paths.forecast",
+        "options_json": "{\"method\":\"bma\",\"observation_dataset\":\"<updated input slice>\",\"observation_column\":\"streamflow\"}"
+      }
+    },
+    {
+      "step": "updated_correction",
+      "mcp_tool": "correction_from_paths",
+      "only_for": [
+        "6.3.4"
+      ],
+      "arguments": {
+        "file_path": "updated_ensemble.artifact_paths.ensemble",
+        "options_json": "{\"observation_dataset\":\"<updated input slice>\",\"observation_column\":\"streamflow\"}"
+      }
+    },
+    {
+      "step": "assemble_result",
+      "tool": "local_report_packaging",
+      "output": {
+        "workflow_report_json": "scenario_dir/workflow_report.json",
+        "workflow_report_md": "scenario_dir/workflow_report.md"
+      }
+    }
+  ],
+  "example_request": {
+    "scenario_id": "6.3.1",
+    "output_root": "results/agno-workflow-runs",
+    "start_time": null,
+    "end_time": null,
+    "initial_end_time": null,
+    "updated_end_time": null,
+    "basin_dataset_path": "data/basin_001_hourly.csv",
+    "multistation_dataset_path": "data/rain_15stations_flow.csv"
+  },
+  "example_batch_cli_request": {
+    "scenario_id": "all",
+    "output_root": "results/agno-workflow-runs"
+  }
+}

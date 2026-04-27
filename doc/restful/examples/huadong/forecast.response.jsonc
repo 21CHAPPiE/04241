@@ -1,0 +1,14 @@
+{
+  "status": "completed",
+  "operation": "forecast",
+  "run_id": "20260425T080348Z-f746c7ec",
+  "run_dir": "H:\\0424\\doc\\restful\\outputs\\huadong\\forecast\\forecast\\20260425T080348Z-f746c7ec",
+  "output_manifest_path": "H:\\0424\\doc\\restful\\outputs\\huadong\\forecast\\forecast\\20260425T080348Z-f746c7ec\\manifest.json",
+  "artifact_paths": {
+    "forecast": "H:\\0424\\doc\\restful\\outputs\\huadong\\forecast\\forecast\\20260425T080348Z-f746c7ec\\forecast.csv", // 多模型预测结果 CSV
+    "summary": "H:\\0424\\doc\\restful\\outputs\\huadong\\forecast\\forecast\\20260425T080348Z-f746c7ec\\summary.txt",
+    "forecast_metrics": "H:\\0424\\doc\\restful\\outputs\\huadong\\forecast\\forecast\\20260425T080348Z-f746c7ec\\forecast_metrics.json", // 4 个模型的指标 JSON
+    "manifest": "H:\\0424\\doc\\restful\\outputs\\huadong\\forecast\\forecast\\20260425T080348Z-f746c7ec\\manifest.json"
+  },
+  "small_summary": "Forecasted 146732 steps with 4 models; best RMSE=118.98."
+}

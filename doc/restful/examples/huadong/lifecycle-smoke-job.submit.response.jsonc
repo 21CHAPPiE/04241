@@ -1,0 +1,16 @@
+{
+  "job_id": "life1234567890", // 生命周期 smoke 任务编号
+  "status": "queued",
+  "submitted_at": "2026-04-27T08:12:00+00:00",
+  "started_at": null,
+  "completed_at": null,
+  "operation": "lifecycle-smoke", // 任务类型：训练/率定/HPO 联合验证
+  "input": {
+    "dataset_path": "H:\\0424\\HuadongCode\\data\\basin_001_hourly.csv",
+    "file_path": null,
+    "output_root": "H:\\0424\\doc\\restful\\outputs\\huadong\\lifecycle-smoke",
+    "options": {}
+  },
+  "result": null,
+  "error": null
+}

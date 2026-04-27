@@ -1,0 +1,26 @@
+{
+  "cases": [
+    {
+      "case_id": "6.4.1", // 场景编号
+      "section_title": "Pre-release trigger and alert demonstration", // 场景标题
+      "kind": "pre_release", // 场景类型
+      "description": "Use a real flood process as a forecast proxy and decide whether pre-release is needed.", // 场景描述
+      "default_event": "2024072617.csv", // 默认事件文件
+      "preferred_modules": [
+        "constant_release",
+        "inflow_linear_release",
+        "storage_piecewise_constant_release",
+        "joint_driven_release"
+      ],
+      "prediction_column": null // 预测列名；没有则为 null
+    }
+  ],
+  "count": 4, // 场景总数
+  "recommended_step_sequence": [
+    "get_tanken_case_status", // 建议先查状态
+    "query_tanken_dispatch_rules", // 再查规则
+    "optimize_tanken_release_plan", // 再优化
+    "simulate_tanken_dispatch_program", // 再仿真
+    "evaluate_tanken_dispatch_result" // 最后评分
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "dataset_path": "H:\\0424\\HuadongCode\\data\\basin_001_hourly.csv", // 原始流域数据路径
+  "file_path": null, // 备用输入文件路径；不用时填 null
+  "output_root": "H:\\0424\\doc\\restful\\outputs\\huadong\\dataset", // 本次产物输出目录
+  "options": {} // 附加参数对象；数据概况接口通常为空对象
+}

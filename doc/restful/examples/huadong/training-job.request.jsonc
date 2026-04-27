@@ -1,0 +1,6 @@
+{
+  "dataset_path": "H:\\0424\\HuadongCode\\data\\basin_001_hourly.csv", // 训练输入数据
+  "file_path": null,
+  "output_root": "H:\\0424\\doc\\restful\\outputs\\huadong\\training",
+  "options": {} // 当前训练任务通常直接使用默认参数
+}

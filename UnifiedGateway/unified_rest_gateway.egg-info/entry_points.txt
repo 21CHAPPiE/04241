@@ -1,0 +1,2 @@
+[console_scripts]
+unified-rest = gateway.server:main

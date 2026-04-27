@@ -1,0 +1,47 @@
+plugin_imports:
+  - "project.plugins.downstream:HechengDownstreamSafetyPlugin"
+  - "project.plugins.reporting:ForecastErrorSummaryPlugin"
+  - "project.plugins.reporting:TankenCaseReportPlugin"
+
+workflows:
+  "6.4.1":
+    flow_type: "fixed_chain"
+    report_plugin:
+      name: "tanken_case_report"
+      config:
+        template: "pre_release"
+    baseline_module_type: "constant_release"
+
+  "6.4.2":
+    flow_type: "fixed_chain"
+    report_plugin:
+      name: "tanken_case_report"
+      config:
+        template: "plan_compare"
+    post_plugin:
+      name: "tanken_hecheng_downstream"
+      config:
+        k: 5.0
+        x: 0.25
+
+  "6.4.3":
+    flow_type: "dynamic_chain"
+    report_plugin:
+      name: "tanken_case_report"
+      config:
+        template: "dynamic_update"
+    forecast_error_plugin:
+      name: "tanken_forecast_error_summary"
+      config: {}
+
+  "6.4.4":
+    flow_type: "fixed_chain"
+    report_plugin:
+      name: "tanken_case_report"
+      config:
+        template: "emergency"
+    post_plugin:
+      name: "tanken_hecheng_downstream"
+      config:
+        k: 5.0
+        x: 0.25

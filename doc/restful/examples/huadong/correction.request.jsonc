@@ -1,0 +1,9 @@
+{
+  "dataset_path": null,
+  "file_path": "H:\\0424\\doc\\restful\\outputs\\huadong\\ensemble\\...\\ensemble.csv", // ensemble 输出 CSV
+  "output_root": "H:\\0424\\doc\\restful\\outputs\\huadong\\correction",
+  "options": {
+    "observation_dataset": "H:\\0424\\HuadongCode\\data\\basin_001_hourly.csv", // 观测数据路径
+    "observation_column": "streamflow" // 观测列名
+  }
+}

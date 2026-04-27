@@ -1,0 +1,14 @@
+{
+  "status": "completed",
+  "operation": "correction",
+  "run_id": "20260425T080429Z-985351cc",
+  "run_dir": "H:\\0424\\doc\\restful\\outputs\\huadong\\correction\\correction\\20260425T080429Z-985351cc",
+  "output_manifest_path": "H:\\0424\\doc\\restful\\outputs\\huadong\\correction\\correction\\20260425T080429Z-985351cc\\manifest.json",
+  "artifact_paths": {
+    "correction": "H:\\0424\\doc\\restful\\outputs\\huadong\\correction\\correction\\20260425T080429Z-985351cc\\corrected.csv", // 订正结果 CSV
+    "summary": "H:\\0424\\doc\\restful\\outputs\\huadong\\correction\\correction\\20260425T080429Z-985351cc\\summary.txt",
+    "correction_details": "H:\\0424\\doc\\restful\\outputs\\huadong\\correction\\correction\\20260425T080429Z-985351cc\\correction_details.json", // 误差指标和订正说明
+    "manifest": "H:\\0424\\doc\\restful\\outputs\\huadong\\correction\\correction\\20260425T080429Z-985351cc\\manifest.json"
+  },
+  "small_summary": "Error metrics: NSE=0.692, Bias=-1.06, RMSE=127.70. Apply positive bias correction to reduce systematic under-forecasting."
+}

@@ -1,0 +1,8 @@
+{
+  "dataset_path": "H:\\0424\\HuadongCode\\data\\basin_001_hourly.csv", // 分析输入数据
+  "file_path": null,
+  "output_root": "H:\\0424\\doc\\restful\\outputs\\huadong\\analysis", // 分析结果目录
+  "options": {
+    "column": "streamflow" // 要分析的数值列
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "status": "ok", // 子服务状态
+  "service": "tanken-rest", // 滩坑调度子服务名称
+  "protocol": "rest", // 当前协议
+  "mcp_compatibility": "preserved" // 历史兼容标记；REST 调用方可忽略
+}

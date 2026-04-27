@@ -1,0 +1,371 @@
+{
+  "case_id": "6.4.1",
+  "section_title": "Pre-release trigger and alert demonstration",
+  "kind": "pre_release",
+  "input_snapshot": {
+    "case_id": "6.4.1",
+    "event_file": "E:\\PyCode\\PyResOps\\data\\flood_event\\2024072617.csv",
+    "start_time": "2024-07-24 14:00",
+    "time_step_hours": 3,
+    "record_count": 8,
+    "current_level_m": 157.5,
+    "initial_storage_billion_m3": 22.5,
+    "initial_inflow_m3s": 32.6,
+    "initial_outflow_m3s": 541.0,
+    "level_source": "case_override_for_demo"
+  },
+  "data_time_step_hours": 3,
+  "rule_context": {
+    "stage": "typhoon",
+    "control_level_m": 156.5,
+    "release_warning_level_m": 156.0,
+    "weather_signal": {
+      "severe_weather": false,
+      "max_prcp_mm": 6.79,
+      "max_inflow_m3s": 212.2
+    }
+  },
+  "decision_summary": {
+    "should_pre_release": true,
+    "trigger_reason": "baseline predicted max level 157.500m exceeds control level 156.500m",
+    "target_control_level_m": 156.5,
+    "recommended_start_time": "2024-07-24 14:00",
+    "recommended_duration_hours": 24,
+    "next_step": "Generate release plan"
+  },
+  "candidate_plans": [
+    {
+      "name": "baseline_no_action",
+      "module_type": "constant_release",
+      "declared_outflow_m3s": 541.0,
+      "predicted_max_level_m": 157.5,
+      "predicted_final_level_m": 157.132
+    },
+    {
+      "name": "recommended_pre_release_plan",
+      "module_type": "constant_release",
+      "declared_outflow_m3s": 1272.095,
+      "predicted_max_level_m": 157.5,
+      "predicted_final_level_m": 156.5,
+      "overall_score": 72.1049
+    }
+  ],
+  "simulation_evidence": {
+    "baseline": {
+      "scenario_id": "6.4.1",
+      "declared_outflow": 541.0,
+      "target_outflow": 541.0,
+      "module_type": "constant_release",
+      "module_parameters": {
+        "target_release": 541.0
+      },
+      "max_level_m": 157.5,
+      "min_level_m": 157.132,
+      "final_level_m": 157.132,
+      "avg_outflow_m3s": 541.0,
+      "total_steps": 9,
+      "snapshots_sample": [
+        {
+          "step": 0,
+          "timestamp": "2024-07-24T14:00:00",
+          "level_m": 157.5,
+          "inflow_m3s": 32.6,
+          "outflow_m3s": 541.0
+        },
+        {
+          "step": 1,
+          "timestamp": "2024-07-24T17:00:00",
+          "level_m": 157.445,
+          "inflow_m3s": 29.6,
+          "outflow_m3s": 541.0
+        },
+        {
+          "step": 2,
+          "timestamp": "2024-07-24T20:00:00",
+          "level_m": 157.39,
+          "inflow_m3s": 110.3,
+          "outflow_m3s": 541.0
+        },
+        {
+          "step": 3,
+          "timestamp": "2024-07-24T23:00:00",
+          "level_m": 157.343,
+          "inflow_m3s": 168.1,
+          "outflow_m3s": 541.0
+        },
+        {
+          "step": 4,
+          "timestamp": "2024-07-25T02:00:00",
+          "level_m": 157.303,
+          "inflow_m3s": 168.2,
+          "outflow_m3s": 541.0
+        },
+        {
+          "step": 5,
+          "timestamp": "2024-07-25T05:00:00",
+          "level_m": 157.263,
+          "inflow_m3s": 42.9,
+          "outflow_m3s": 541.0
+        },
+        {
+          "step": 6,
+          "timestamp": "2024-07-25T08:00:00",
+          "level_m": 157.209,
+          "inflow_m3s": 153.6,
+          "outflow_m3s": 541.0
+        },
+        {
+          "step": 7,
+          "timestamp": "2024-07-25T11:00:00",
+          "level_m": 157.167,
+          "inflow_m3s": 212.2,
+          "outflow_m3s": 541.0
+        },
+        {
+          "step": 8,
+          "timestamp": "2024-07-25T14:00:00",
+          "level_m": 157.132,
+          "inflow_m3s": 212.2,
+          "outflow_m3s": 541.0
+        }
+      ]
+    },
+    "recommended": {
+      "status": {
+        "scenario_id": "6.4.1",
+        "current_level_m": 157.5,
+        "initial_storage_billion_m3": 22.5,
+        "current_inflow_m3s": 32.6,
+        "forecast_inflow_m3s": 32.6,
+        "dead_level_m": 150.0,
+        "normal_level_m": 175.0,
+        "flood_limit_level_m": 156.5,
+        "design_flood_level_m": 180.0,
+        "total_capacity_billion_m3": 39.3,
+        "flood_capacity_billion_m3": 22.15,
+        "season": "typhoon",
+        "flood_risk": "medium",
+        "benchmark_preferred_modules": [
+          "constant_release",
+          "inflow_linear_release",
+          "storage_piecewise_constant_release",
+          "joint_driven_release"
+        ],
+        "forecast_sequence_summary": {
+          "step_count": 8,
+          "first_inflow_m3s": 32.6,
+          "max_inflow_m3s": 212.2,
+          "min_inflow_m3s": 29.6
+        },
+        "carry_over_plan": null
+      },
+      "rules": {
+        "scenario_id": "6.4.1",
+        "name": "Pre-release trigger and alert demonstration",
+        "description": "Use a real flood process as a forecast proxy and decide whether pre-release is needed.",
+        "hard_constraints": {
+          "flood_limit_level_m": 156.5,
+          "dead_level_m": 150.0,
+          "normal_level_m": 175.0,
+          "max_level_m": 161.5,
+          "design_flood_level_m": 180.0,
+          "ecological_min_flow_m3s": 50.0,
+          "downstream_limit_m3s": 14000.0
+        },
+        "objectives": {
+          "target_level": 156.5
+        },
+        "task_constraints": {
+          "target_level": 156.5,
+          "target_tolerance": 0.3
+        },
+        "flood_limit_level_m": 156.5,
+        "eco_min_flow_m3s": 50.0,
+        "downstream_safe_flow_m3s": 14000.0,
+        "deadline_hours": 24.0,
+        "target_level_m": 156.5,
+        "window_hours": 24.0,
+        "benchmark_preferred_modules": [
+          "constant_release",
+          "inflow_linear_release",
+          "storage_piecewise_constant_release",
+          "joint_driven_release"
+        ],
+        "benchmark_source_markdown": "project/target.md#6.4.1",
+        "requested_module_type": null,
+        "carry_over_plan": null
+      },
+      "optimization": {
+        "scenario_id": "6.4.1",
+        "program_id": "prog_20260424092947_0f0d0509",
+        "selected_module_type": "constant_release",
+        "selected_module_parameters": {
+          "target_release": 1272.0949114520233
+        },
+        "feasible_solution_found": true,
+        "fallback_applied": false,
+        "requested_module_type": null,
+        "horizon_hours": null,
+        "control_interval_seconds": null,
+        "final_level_m": 156.5,
+        "avg_release_m3s": 1272.095,
+        "avg_outflow_m3s": 1272.095,
+        "release_values_m3s": [
+          1272.095,
+          1272.095,
+          1272.095,
+          1272.095,
+          1272.095,
+          1272.095,
+          1272.095,
+          1272.095,
+          1272.095
+        ],
+        "min_release_m3s": 1272.095,
+        "max_release_m3s": 1272.095,
+        "family_attempts": [
+          {
+            "module_type": "constant_release",
+            "candidate_count": 28,
+            "solver_method": "scipy.minimize_scalar",
+            "selected_candidate": {
+              "module_type": "constant_release",
+              "module_parameters": {
+                "target_release": 1272.0949114520233
+              },
+              "feasible": true,
+              "objective_score": 0.00712,
+              "violations": [],
+              "unmet_task_constraints": [],
+              "final_level_m": 156.5,
+              "avg_outflow_m3s": 1272.095,
+              "overall_score": 72.105359,
+              "solve_metadata": {
+                "hard_gap": 0.0,
+                "task_gap": 0,
+                "adjustment_count": 0,
+                "fallback_count": 0,
+                "solver_method": "scipy.minimize_scalar",
+                "evaluation_count": 28
+              }
+            }
+          }
+        ]
+      },
+      "simulation": {
+        "scenario_id": "6.4.1",
+        "declared_outflow": 1272.095,
+        "target_outflow": 1272.095,
+        "module_type": "constant_release",
+        "module_parameters": {
+          "target_release": 1272.0949114520233
+        },
+        "max_level_m": 157.5,
+        "min_level_m": 156.5,
+        "final_level_m": 156.5,
+        "avg_outflow_m3s": 1272.1,
+        "total_steps": 9,
+        "snapshots_sample": [
+          {
+            "step": 0,
+            "timestamp": "2024-07-24T14:00:00",
+            "level_m": 157.5,
+            "inflow_m3s": 32.6,
+            "outflow_m3s": 1272.1
+          },
+          {
+            "step": 1,
+            "timestamp": "2024-07-24T17:00:00",
+            "level_m": 157.366,
+            "inflow_m3s": 29.6,
+            "outflow_m3s": 1272.1
+          },
+          {
+            "step": 2,
+            "timestamp": "2024-07-24T20:00:00",
+            "level_m": 157.232,
+            "inflow_m3s": 110.3,
+            "outflow_m3s": 1272.1
+          },
+          {
+            "step": 3,
+            "timestamp": "2024-07-24T23:00:00",
+            "level_m": 157.106,
+            "inflow_m3s": 168.1,
+            "outflow_m3s": 1272.1
+          },
+          {
+            "step": 4,
+            "timestamp": "2024-07-25T02:00:00",
+            "level_m": 156.987,
+            "inflow_m3s": 168.2,
+            "outflow_m3s": 1272.1
+          },
+          {
+            "step": 5,
+            "timestamp": "2024-07-25T05:00:00",
+            "level_m": 156.868,
+            "inflow_m3s": 42.9,
+            "outflow_m3s": 1272.1
+          },
+          {
+            "step": 6,
+            "timestamp": "2024-07-25T08:00:00",
+            "level_m": 156.735,
+            "inflow_m3s": 153.6,
+            "outflow_m3s": 1272.1
+          },
+          {
+            "step": 7,
+            "timestamp": "2024-07-25T11:00:00",
+            "level_m": 156.614,
+            "inflow_m3s": 212.2,
+            "outflow_m3s": 1272.1
+          },
+          {
+            "step": 8,
+            "timestamp": "2024-07-25T14:00:00",
+            "level_m": 156.5,
+            "inflow_m3s": 212.2,
+            "outflow_m3s": 1272.1
+          }
+        ]
+      },
+      "evaluation": {
+        "scenario_id": "6.4.1",
+        "declared_outflow": 1272.095,
+        "target_outflow": 1272.095,
+        "module_type": "constant_release",
+        "module_parameters": {
+          "target_release": 1272.0949114520233
+        },
+        "final_level_m": 156.5,
+        "target_level_m": 156.5,
+        "overall_score": 72.1049,
+        "flood_control_score": 97.8723,
+        "water_supply_score": 63.0,
+        "power_generation_score": 11.562,
+        "ecological_score": 100.0,
+        "constraint_violations_count": 0,
+        "constraint_violations": []
+      }
+    }
+  },
+  "alerts": [
+    {
+      "type": "high_water_level",
+      "triggered": false
+    },
+    {
+      "type": "flood_release_warning",
+      "triggered": true,
+      "lead_time_hours": 1,
+      "message": "Level is near the flood-limit warning threshold and pre-release has been triggered."
+    }
+  ],
+  "instruction_delta": {},
+  "emergency_action": {},
+  "todo_gaps": [
+    "Cases 6.4.1, 6.4.2, and 6.4.4 still rely on historical flood processes as forecast-proxy inputs."
+  ]
+}

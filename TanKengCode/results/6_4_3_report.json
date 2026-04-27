@@ -1,0 +1,931 @@
+{
+  "case_id": "6.4.3",
+  "section_title": "Dynamic dispatch update demonstration",
+  "kind": "dynamic_update",
+  "input_snapshot": {
+    "case_id": "6.4.3",
+    "event_file": "E:\\PyCode\\PyResOps\\data\\2024072617_with_pred.csv",
+    "start_time": "2024-07-24 14:00",
+    "time_step_hours": 3,
+    "record_count": 8,
+    "current_level_m": 156.8,
+    "initial_storage_billion_m3": 21.8,
+    "initial_inflow_m3s": 32.6,
+    "initial_outflow_m3s": 541.0,
+    "level_source": "case_override_for_demo"
+  },
+  "data_time_step_hours": 3,
+  "rule_context": {
+    "update_windows": [
+      8,
+      16,
+      24
+    ],
+    "recompute_trigger": "New observations and an extended forecast window triggered recomputation.",
+    "chosen_flood_event": "2024072617_with_pred.csv",
+    "prediction_column": "predict"
+  },
+  "decision_summary": {
+    "version_count": 3,
+    "final_stage": "T2",
+    "final_recommended_outflow_m3s": 448.704
+  },
+  "candidate_plans": [],
+  "simulation_evidence": {
+    "stages": [
+      {
+        "stage": "T0",
+        "update_reason": "Initial dispatch plan generated",
+        "input_snapshot": {
+          "case_id": "6.4.3",
+          "event_file": "E:\\PyCode\\PyResOps\\data\\2024072617_with_pred.csv",
+          "start_time": "2024-07-24 14:00",
+          "time_step_hours": 3,
+          "record_count": 8,
+          "current_level_m": 156.8,
+          "initial_storage_billion_m3": 21.8,
+          "initial_inflow_m3s": 32.6,
+          "initial_outflow_m3s": 541.0,
+          "level_source": "case_override_for_demo"
+        },
+        "forecast_error_summary": {
+          "paired_points": 8,
+          "mean_abs_error_m3s": 24.887,
+          "mean_signed_error_m3s": 6.763,
+          "max_abs_error_m3s": 97.2
+        },
+        "selected_plan": {
+          "stage": "T0",
+          "window_points": 8,
+          "recommended_outflow_m3s": 468.672,
+          "module_type": "constant_release",
+          "final_level_m": 156.5,
+          "overall_score": 71.329
+        },
+        "instruction_delta": {
+          "change_type": "initial",
+          "summary": "Initial dispatch instruction generated.",
+          "release_delta_m3s": 0.0
+        },
+        "chain": {
+          "status": {
+            "scenario_id": "6.4.3",
+            "current_level_m": 156.8,
+            "initial_storage_billion_m3": 21.80000000000001,
+            "current_inflow_m3s": 32.6,
+            "forecast_inflow_m3s": 43.7,
+            "dead_level_m": 150.0,
+            "normal_level_m": 175.0,
+            "flood_limit_level_m": 156.5,
+            "design_flood_level_m": 180.0,
+            "total_capacity_billion_m3": 39.3,
+            "flood_capacity_billion_m3": 22.15,
+            "season": "typhoon",
+            "flood_risk": "high",
+            "benchmark_preferred_modules": [
+              "constant_release",
+              "inflow_piecewise_constant_release",
+              "inflow_linear_release",
+              "joint_driven_release"
+            ],
+            "forecast_sequence_summary": {
+              "step_count": 8,
+              "first_inflow_m3s": 43.7,
+              "max_inflow_m3s": 181.4,
+              "min_inflow_m3s": 35.4
+            },
+            "carry_over_plan": null
+          },
+          "rules": {
+            "scenario_id": "6.4.3",
+            "name": "Dynamic dispatch update demonstration",
+            "description": "Update release instructions incrementally as new inflow information arrives.",
+            "hard_constraints": {
+              "flood_limit_level_m": 156.5,
+              "dead_level_m": 150.0,
+              "normal_level_m": 175.0,
+              "max_level_m": 161.5,
+              "design_flood_level_m": 180.0,
+              "ecological_min_flow_m3s": 50.0,
+              "downstream_limit_m3s": 14000.0
+            },
+            "objectives": {
+              "target_level": 156.5
+            },
+            "task_constraints": {
+              "target_level": 156.5,
+              "target_tolerance": 0.3
+            },
+            "flood_limit_level_m": 156.5,
+            "eco_min_flow_m3s": 50.0,
+            "downstream_safe_flow_m3s": 14000.0,
+            "deadline_hours": 24.0,
+            "target_level_m": 156.5,
+            "window_hours": 24.0,
+            "benchmark_preferred_modules": [
+              "constant_release",
+              "inflow_piecewise_constant_release",
+              "inflow_linear_release",
+              "joint_driven_release"
+            ],
+            "benchmark_source_markdown": "project/target.md#6.4.3",
+            "requested_module_type": null,
+            "carry_over_plan": null
+          },
+          "optimization": {
+            "scenario_id": "6.4.3",
+            "program_id": "prog_20260424092947_cd501a3e",
+            "selected_module_type": "constant_release",
+            "selected_module_parameters": {
+              "target_release": 468.6722276114706
+            },
+            "feasible_solution_found": true,
+            "fallback_applied": false,
+            "requested_module_type": null,
+            "horizon_hours": null,
+            "control_interval_seconds": null,
+            "final_level_m": 156.5,
+            "avg_release_m3s": 468.672,
+            "avg_outflow_m3s": 468.672,
+            "release_values_m3s": [
+              468.672,
+              468.672,
+              468.672,
+              468.672,
+              468.672,
+              468.672,
+              468.672,
+              468.672,
+              468.672
+            ],
+            "min_release_m3s": 468.672,
+            "max_release_m3s": 468.672,
+            "family_attempts": [
+              {
+                "module_type": "constant_release",
+                "candidate_count": 34,
+                "solver_method": "scipy.minimize_scalar",
+                "selected_candidate": {
+                  "module_type": "constant_release",
+                  "module_parameters": {
+                    "target_release": 468.6722276114706
+                  },
+                  "feasible": true,
+                  "objective_score": 0.007099,
+                  "violations": [],
+                  "unmet_task_constraints": [],
+                  "final_level_m": 156.5,
+                  "avg_outflow_m3s": 468.672,
+                  "overall_score": 71.329065,
+                  "solve_metadata": {
+                    "hard_gap": 0.0,
+                    "task_gap": 0,
+                    "adjustment_count": 0,
+                    "fallback_count": 0,
+                    "solver_method": "scipy.minimize_scalar",
+                    "evaluation_count": 34
+                  }
+                }
+              }
+            ]
+          },
+          "simulation": {
+            "scenario_id": "6.4.3",
+            "declared_outflow": 468.672,
+            "target_outflow": 468.672,
+            "module_type": "constant_release",
+            "module_parameters": {
+              "target_release": 468.6722276114706
+            },
+            "max_level_m": 156.8,
+            "min_level_m": 156.5,
+            "final_level_m": 156.5,
+            "avg_outflow_m3s": 468.7,
+            "total_steps": 9,
+            "snapshots_sample": [
+              {
+                "step": 0,
+                "timestamp": "2024-07-24T14:00:00",
+                "level_m": 156.8,
+                "inflow_m3s": 43.7,
+                "outflow_m3s": 468.7
+              },
+              {
+                "step": 1,
+                "timestamp": "2024-07-24T17:00:00",
+                "level_m": 156.754,
+                "inflow_m3s": 35.4,
+                "outflow_m3s": 468.7
+              },
+              {
+                "step": 2,
+                "timestamp": "2024-07-24T20:00:00",
+                "level_m": 156.707,
+                "inflow_m3s": 88.5,
+                "outflow_m3s": 468.7
+              },
+              {
+                "step": 3,
+                "timestamp": "2024-07-24T23:00:00",
+                "level_m": 156.666,
+                "inflow_m3s": 148.2,
+                "outflow_m3s": 468.7
+              },
+              {
+                "step": 4,
+                "timestamp": "2024-07-25T02:00:00",
+                "level_m": 156.632,
+                "inflow_m3s": 169.5,
+                "outflow_m3s": 468.7
+              },
+              {
+                "step": 5,
+                "timestamp": "2024-07-25T05:00:00",
+                "level_m": 156.599,
+                "inflow_m3s": 140.1,
+                "outflow_m3s": 468.7
+              },
+              {
+                "step": 6,
+                "timestamp": "2024-07-25T08:00:00",
+                "level_m": 156.564,
+                "inflow_m3s": 164.8,
+                "outflow_m3s": 468.7
+              },
+              {
+                "step": 7,
+                "timestamp": "2024-07-25T11:00:00",
+                "level_m": 156.531,
+                "inflow_m3s": 181.4,
+                "outflow_m3s": 468.7
+              },
+              {
+                "step": 8,
+                "timestamp": "2024-07-25T14:00:00",
+                "level_m": 156.5,
+                "inflow_m3s": 181.4,
+                "outflow_m3s": 468.7
+              }
+            ]
+          },
+          "evaluation": {
+            "scenario_id": "6.4.3",
+            "declared_outflow": 468.672,
+            "target_outflow": 468.672,
+            "module_type": "constant_release",
+            "module_parameters": {
+              "target_release": 468.6722276114706
+            },
+            "final_level_m": 156.5,
+            "target_level_m": 156.5,
+            "overall_score": 71.329,
+            "flood_control_score": 99.3617,
+            "water_supply_score": 63.0,
+            "power_generation_score": 4.3314,
+            "ecological_score": 100.0,
+            "constraint_violations_count": 0,
+            "constraint_violations": []
+          }
+        }
+      },
+      {
+        "stage": "T1",
+        "update_reason": "New observations and a larger forecast window triggered re-optimization",
+        "input_snapshot": {
+          "case_id": "6.4.3",
+          "event_file": "E:\\PyCode\\PyResOps\\data\\2024072617_with_pred.csv",
+          "start_time": "2024-07-24 14:00",
+          "time_step_hours": 3,
+          "record_count": 16,
+          "current_level_m": 156.5,
+          "initial_storage_billion_m3": 21.5,
+          "initial_inflow_m3s": 32.6,
+          "initial_outflow_m3s": 541.0,
+          "level_source": "case_override_for_demo"
+        },
+        "forecast_error_summary": {
+          "paired_points": 16,
+          "mean_abs_error_m3s": 64.925,
+          "mean_signed_error_m3s": -20.312,
+          "max_abs_error_m3s": 334.6
+        },
+        "selected_plan": {
+          "stage": "T1",
+          "window_points": 16,
+          "recommended_outflow_m3s": 246.075,
+          "module_type": "constant_release",
+          "final_level_m": 156.5,
+          "overall_score": 71.1489
+        },
+        "instruction_delta": {
+          "change_type": "incremental_update",
+          "summary": "Decrease release recommendation",
+          "release_delta_m3s": -222.597,
+          "module_changed": false,
+          "previous_stage": "T0",
+          "current_stage": "T1"
+        },
+        "chain": {
+          "status": {
+            "scenario_id": "6.4.3",
+            "current_level_m": 156.5,
+            "initial_storage_billion_m3": 21.5,
+            "current_inflow_m3s": 32.6,
+            "forecast_inflow_m3s": 43.7,
+            "dead_level_m": 150.0,
+            "normal_level_m": 175.0,
+            "flood_limit_level_m": 156.5,
+            "design_flood_level_m": 180.0,
+            "total_capacity_billion_m3": 39.3,
+            "flood_capacity_billion_m3": 22.15,
+            "season": "typhoon",
+            "flood_risk": "high",
+            "benchmark_preferred_modules": [
+              "constant_release",
+              "inflow_piecewise_constant_release",
+              "inflow_linear_release",
+              "joint_driven_release"
+            ],
+            "forecast_sequence_summary": {
+              "step_count": 16,
+              "first_inflow_m3s": 43.7,
+              "max_inflow_m3s": 524.5,
+              "min_inflow_m3s": 35.4
+            },
+            "carry_over_plan": null
+          },
+          "rules": {
+            "scenario_id": "6.4.3",
+            "name": "Dynamic dispatch update demonstration",
+            "description": "Update release instructions incrementally as new inflow information arrives.",
+            "hard_constraints": {
+              "flood_limit_level_m": 156.5,
+              "dead_level_m": 150.0,
+              "normal_level_m": 175.0,
+              "max_level_m": 161.5,
+              "design_flood_level_m": 180.0,
+              "ecological_min_flow_m3s": 50.0,
+              "downstream_limit_m3s": 14000.0
+            },
+            "objectives": {
+              "target_level": 156.5
+            },
+            "task_constraints": {
+              "target_level": 156.5,
+              "target_tolerance": 0.3
+            },
+            "flood_limit_level_m": 156.5,
+            "eco_min_flow_m3s": 50.0,
+            "downstream_safe_flow_m3s": 14000.0,
+            "deadline_hours": 48.0,
+            "target_level_m": 156.5,
+            "window_hours": 48.0,
+            "benchmark_preferred_modules": [
+              "constant_release",
+              "inflow_piecewise_constant_release",
+              "inflow_linear_release",
+              "joint_driven_release"
+            ],
+            "benchmark_source_markdown": "project/target.md#6.4.3",
+            "requested_module_type": null,
+            "carry_over_plan": null
+          },
+          "optimization": {
+            "scenario_id": "6.4.3",
+            "program_id": "prog_20260424092947_b85713e4",
+            "selected_module_type": "constant_release",
+            "selected_module_parameters": {
+              "target_release": 246.07499957572972
+            },
+            "feasible_solution_found": true,
+            "fallback_applied": false,
+            "requested_module_type": null,
+            "horizon_hours": null,
+            "control_interval_seconds": null,
+            "final_level_m": 156.5,
+            "avg_release_m3s": 246.075,
+            "avg_outflow_m3s": 246.075,
+            "release_values_m3s": [
+              246.075,
+              246.075,
+              246.075,
+              246.075,
+              246.075,
+              246.075,
+              246.075,
+              246.075,
+              246.075,
+              246.075,
+              246.075,
+              246.075,
+              246.075,
+              246.075,
+              246.075,
+              246.075,
+              246.075
+            ],
+            "min_release_m3s": 246.075,
+            "max_release_m3s": 246.075,
+            "family_attempts": [
+              {
+                "module_type": "constant_release",
+                "candidate_count": 30,
+                "solver_method": "scipy.minimize_scalar",
+                "selected_candidate": {
+                  "module_type": "constant_release",
+                  "module_parameters": {
+                    "target_release": 246.07499957572972
+                  },
+                  "feasible": true,
+                  "objective_score": 0.007097,
+                  "violations": [],
+                  "unmet_task_constraints": [],
+                  "final_level_m": 156.5,
+                  "avg_outflow_m3s": 246.075,
+                  "overall_score": 71.148878,
+                  "solve_metadata": {
+                    "hard_gap": 0.0,
+                    "task_gap": 0,
+                    "adjustment_count": 0,
+                    "fallback_count": 0,
+                    "solver_method": "scipy.minimize_scalar",
+                    "evaluation_count": 30
+                  }
+                }
+              }
+            ]
+          },
+          "simulation": {
+            "scenario_id": "6.4.3",
+            "declared_outflow": 246.075,
+            "target_outflow": 246.075,
+            "module_type": "constant_release",
+            "module_parameters": {
+              "target_release": 246.07499957572972
+            },
+            "max_level_m": 156.5,
+            "min_level_m": 156.379,
+            "final_level_m": 156.5,
+            "avg_outflow_m3s": 246.1,
+            "total_steps": 17,
+            "snapshots_sample": [
+              {
+                "step": 0,
+                "timestamp": "2024-07-24T14:00:00",
+                "level_m": 156.5,
+                "inflow_m3s": 43.7,
+                "outflow_m3s": 246.1
+              },
+              {
+                "step": 1,
+                "timestamp": "2024-07-24T17:00:00",
+                "level_m": 156.478,
+                "inflow_m3s": 35.4,
+                "outflow_m3s": 246.1
+              },
+              {
+                "step": 2,
+                "timestamp": "2024-07-24T20:00:00",
+                "level_m": 156.455,
+                "inflow_m3s": 88.5,
+                "outflow_m3s": 246.1
+              },
+              {
+                "step": 3,
+                "timestamp": "2024-07-24T23:00:00",
+                "level_m": 156.438,
+                "inflow_m3s": 148.2,
+                "outflow_m3s": 246.1
+              },
+              {
+                "step": 4,
+                "timestamp": "2024-07-25T02:00:00",
+                "level_m": 156.428,
+                "inflow_m3s": 169.5,
+                "outflow_m3s": 246.1
+              },
+              {
+                "step": 5,
+                "timestamp": "2024-07-25T05:00:00",
+                "level_m": 156.42,
+                "inflow_m3s": 140.1,
+                "outflow_m3s": 246.1
+              },
+              {
+                "step": 6,
+                "timestamp": "2024-07-25T08:00:00",
+                "level_m": 156.408,
+                "inflow_m3s": 164.8,
+                "outflow_m3s": 246.1
+              },
+              {
+                "step": 7,
+                "timestamp": "2024-07-25T11:00:00",
+                "level_m": 156.399,
+                "inflow_m3s": 181.4,
+                "outflow_m3s": 246.1
+              },
+              {
+                "step": 8,
+                "timestamp": "2024-07-25T14:00:00",
+                "level_m": 156.392,
+                "inflow_m3s": 188.5,
+                "outflow_m3s": 246.1
+              },
+              {
+                "step": 9,
+                "timestamp": "2024-07-25T17:00:00",
+                "level_m": 156.386,
+                "inflow_m3s": 182.1,
+                "outflow_m3s": 246.1
+              },
+              {
+                "step": 10,
+                "timestamp": "2024-07-25T20:00:00",
+                "level_m": 156.379,
+                "inflow_m3s": 337.3,
+                "outflow_m3s": 246.1
+              },
+              {
+                "step": 11,
+                "timestamp": "2024-07-25T23:00:00",
+                "level_m": 156.389,
+                "inflow_m3s": 386.1,
+                "outflow_m3s": 246.1
+              },
+              {
+                "step": 12,
+                "timestamp": "2024-07-26T02:00:00",
+                "level_m": 156.404,
+                "inflow_m3s": 460.6,
+                "outflow_m3s": 246.1
+              },
+              {
+                "step": 13,
+                "timestamp": "2024-07-26T05:00:00",
+                "level_m": 156.427,
+                "inflow_m3s": 438.6,
+                "outflow_m3s": 246.1
+              },
+              {
+                "step": 14,
+                "timestamp": "2024-07-26T08:00:00",
+                "level_m": 156.448,
+                "inflow_m3s": 524.5,
+                "outflow_m3s": 246.1
+              },
+              {
+                "step": 15,
+                "timestamp": "2024-07-26T11:00:00",
+                "level_m": 156.478,
+                "inflow_m3s": 447.9,
+                "outflow_m3s": 246.1
+              },
+              {
+                "step": 16,
+                "timestamp": "2024-07-26T14:00:00",
+                "level_m": 156.5,
+                "inflow_m3s": 447.9,
+                "outflow_m3s": 246.1
+              }
+            ]
+          },
+          "evaluation": {
+            "scenario_id": "6.4.3",
+            "declared_outflow": 246.075,
+            "target_outflow": 246.075,
+            "module_type": "constant_release",
+            "module_parameters": {
+              "target_release": 246.07499957572972
+            },
+            "final_level_m": 156.5,
+            "target_level_m": 156.5,
+            "overall_score": 71.1489,
+            "flood_control_score": 100.0,
+            "water_supply_score": 62.7584,
+            "power_generation_score": 2.2964,
+            "ecological_score": 100.0,
+            "constraint_violations_count": 0,
+            "constraint_violations": []
+          }
+        }
+      },
+      {
+        "stage": "T2",
+        "update_reason": "New observations and a larger forecast window triggered re-optimization",
+        "input_snapshot": {
+          "case_id": "6.4.3",
+          "event_file": "E:\\PyCode\\PyResOps\\data\\2024072617_with_pred.csv",
+          "start_time": "2024-07-24 14:00",
+          "time_step_hours": 3,
+          "record_count": 24,
+          "current_level_m": 156.5,
+          "initial_storage_billion_m3": 21.5,
+          "initial_inflow_m3s": 32.6,
+          "initial_outflow_m3s": 541.0,
+          "level_source": "case_override_for_demo"
+        },
+        "forecast_error_summary": {
+          "paired_points": 24,
+          "mean_abs_error_m3s": 61.0,
+          "mean_signed_error_m3s": -24.492,
+          "max_abs_error_m3s": 334.6
+        },
+        "selected_plan": {
+          "stage": "T2",
+          "window_points": 24,
+          "recommended_outflow_m3s": 448.704,
+          "module_type": "constant_release",
+          "final_level_m": 156.5,
+          "overall_score": 71.4134
+        },
+        "instruction_delta": {
+          "change_type": "incremental_update",
+          "summary": "Increase release recommendation",
+          "release_delta_m3s": 202.629,
+          "module_changed": false,
+          "previous_stage": "T1",
+          "current_stage": "T2"
+        },
+        "chain": {
+          "status": {
+            "scenario_id": "6.4.3",
+            "current_level_m": 156.5,
+            "initial_storage_billion_m3": 21.5,
+            "current_inflow_m3s": 32.6,
+            "forecast_inflow_m3s": 43.7,
+            "dead_level_m": 150.0,
+            "normal_level_m": 175.0,
+            "flood_limit_level_m": 156.5,
+            "design_flood_level_m": 180.0,
+            "total_capacity_billion_m3": 39.3,
+            "flood_capacity_billion_m3": 22.15,
+            "season": "typhoon",
+            "flood_risk": "high",
+            "benchmark_preferred_modules": [
+              "constant_release",
+              "inflow_piecewise_constant_release",
+              "inflow_linear_release",
+              "joint_driven_release"
+            ],
+            "forecast_sequence_summary": {
+              "step_count": 24,
+              "first_inflow_m3s": 43.7,
+              "max_inflow_m3s": 1271.5,
+              "min_inflow_m3s": 35.4
+            },
+            "carry_over_plan": null
+          },
+          "rules": {
+            "scenario_id": "6.4.3",
+            "name": "Dynamic dispatch update demonstration",
+            "description": "Update release instructions incrementally as new inflow information arrives.",
+            "hard_constraints": {
+              "flood_limit_level_m": 156.5,
+              "dead_level_m": 150.0,
+              "normal_level_m": 175.0,
+              "max_level_m": 161.5,
+              "design_flood_level_m": 180.0,
+              "ecological_min_flow_m3s": 50.0,
+              "downstream_limit_m3s": 14000.0
+            },
+            "objectives": {
+              "target_level": 156.5
+            },
+            "task_constraints": {
+              "target_level": 156.5,
+              "target_tolerance": 0.3
+            },
+            "flood_limit_level_m": 156.5,
+            "eco_min_flow_m3s": 50.0,
+            "downstream_safe_flow_m3s": 14000.0,
+            "deadline_hours": 72.0,
+            "target_level_m": 156.5,
+            "window_hours": 72.0,
+            "benchmark_preferred_modules": [
+              "constant_release",
+              "inflow_piecewise_constant_release",
+              "inflow_linear_release",
+              "joint_driven_release"
+            ],
+            "benchmark_source_markdown": "project/target.md#6.4.3",
+            "requested_module_type": null,
+            "carry_over_plan": null
+          },
+          "optimization": {
+            "scenario_id": "6.4.3",
+            "program_id": "prog_20260424092947_ec6bc071",
+            "selected_module_type": "constant_release",
+            "selected_module_parameters": {
+              "target_release": 448.7041630857389
+            },
+            "feasible_solution_found": true,
+            "fallback_applied": false,
+            "requested_module_type": null,
+            "horizon_hours": null,
+            "control_interval_seconds": null,
+            "final_level_m": 156.5,
+            "avg_release_m3s": 448.704,
+            "avg_outflow_m3s": 448.704,
+            "release_values_m3s": [
+              448.704,
+              448.704,
+              448.704,
+              448.704,
+              448.704,
+              448.704,
+              448.704,
+              448.704,
+              448.704,
+              448.704,
+              448.704,
+              448.704,
+              448.704,
+              448.704,
+              448.704,
+              448.704,
+              448.704,
+              448.704,
+              448.704,
+              448.704,
+              448.704,
+              448.704,
+              448.704,
+              448.704,
+              448.704
+            ],
+            "min_release_m3s": 448.704,
+            "max_release_m3s": 448.704,
+            "family_attempts": [
+              {
+                "module_type": "constant_release",
+                "candidate_count": 30,
+                "solver_method": "scipy.minimize_scalar",
+                "selected_candidate": {
+                  "module_type": "constant_release",
+                  "module_parameters": {
+                    "target_release": 448.7041630857389
+                  },
+                  "feasible": true,
+                  "objective_score": 0.007109,
+                  "violations": [],
+                  "unmet_task_constraints": [],
+                  "final_level_m": 156.5,
+                  "avg_outflow_m3s": 448.704,
+                  "overall_score": 71.413433,
+                  "solve_metadata": {
+                    "hard_gap": 0.0,
+                    "task_gap": 0,
+                    "adjustment_count": 0,
+                    "fallback_count": 0,
+                    "solver_method": "scipy.minimize_scalar",
+                    "evaluation_count": 30
+                  }
+                }
+              }
+            ]
+          },
+          "simulation": {
+            "scenario_id": "6.4.3",
+            "declared_outflow": 448.704,
+            "target_outflow": 448.704,
+            "module_type": "constant_release",
+            "module_parameters": {
+              "target_release": 448.7041630857389
+            },
+            "max_level_m": 156.5,
+            "min_level_m": 156.142,
+            "final_level_m": 156.5,
+            "avg_outflow_m3s": 448.7,
+            "total_steps": 25,
+            "snapshots_sample": [
+              {
+                "step": 0,
+                "timestamp": "2024-07-24T14:00:00",
+                "level_m": 156.5,
+                "inflow_m3s": 43.7,
+                "outflow_m3s": 448.7
+              },
+              {
+                "step": 1,
+                "timestamp": "2024-07-24T20:00:00",
+                "level_m": 156.412,
+                "inflow_m3s": 88.5,
+                "outflow_m3s": 448.7
+              },
+              {
+                "step": 2,
+                "timestamp": "2024-07-25T02:00:00",
+                "level_m": 156.34,
+                "inflow_m3s": 169.5,
+                "outflow_m3s": 448.7
+              },
+              {
+                "step": 3,
+                "timestamp": "2024-07-25T08:00:00",
+                "level_m": 156.277,
+                "inflow_m3s": 164.8,
+                "outflow_m3s": 448.7
+              },
+              {
+                "step": 4,
+                "timestamp": "2024-07-25T14:00:00",
+                "level_m": 156.217,
+                "inflow_m3s": 188.5,
+                "outflow_m3s": 448.7
+              },
+              {
+                "step": 5,
+                "timestamp": "2024-07-25T20:00:00",
+                "level_m": 156.16,
+                "inflow_m3s": 337.3,
+                "outflow_m3s": 448.7
+              },
+              {
+                "step": 6,
+                "timestamp": "2024-07-26T02:00:00",
+                "level_m": 156.142,
+                "inflow_m3s": 460.6,
+                "outflow_m3s": 448.7
+              },
+              {
+                "step": 7,
+                "timestamp": "2024-07-26T08:00:00",
+                "level_m": 156.142,
+                "inflow_m3s": 524.5,
+                "outflow_m3s": 448.7
+              },
+              {
+                "step": 8,
+                "timestamp": "2024-07-26T14:00:00",
+                "level_m": 156.15,
+                "inflow_m3s": 765.6,
+                "outflow_m3s": 448.7
+              },
+              {
+                "step": 9,
+                "timestamp": "2024-07-26T20:00:00",
+                "level_m": 156.273,
+                "inflow_m3s": 1080.2,
+                "outflow_m3s": 448.7
+              },
+              {
+                "step": 10,
+                "timestamp": "2024-07-27T02:00:00",
+                "level_m": 156.393,
+                "inflow_m3s": 875.5,
+                "outflow_m3s": 448.7
+              },
+              {
+                "step": 11,
+                "timestamp": "2024-07-27T08:00:00",
+                "level_m": 156.476,
+                "inflow_m3s": 560.8,
+                "outflow_m3s": 448.7
+              },
+              {
+                "step": 12,
+                "timestamp": "2024-07-27T14:00:00",
+                "level_m": 156.5,
+                "inflow_m3s": 558.4,
+                "outflow_m3s": 448.7
+              }
+            ]
+          },
+          "evaluation": {
+            "scenario_id": "6.4.3",
+            "declared_outflow": 448.704,
+            "target_outflow": 448.704,
+            "module_type": "constant_release",
+            "module_parameters": {
+              "target_release": 448.7041630857389
+            },
+            "final_level_m": 156.5,
+            "target_level_m": 156.5,
+            "overall_score": 71.4134,
+            "flood_control_score": 100.0,
+            "water_supply_score": 62.2831,
+            "power_generation_score": 4.2131,
+            "ecological_score": 100.0,
+            "constraint_violations_count": 0,
+            "constraint_violations": []
+          }
+        }
+      }
+    ]
+  },
+  "alerts": [],
+  "instruction_delta": {
+    "change_type": "incremental_update",
+    "summary": "Increase release recommendation",
+    "release_delta_m3s": 202.629,
+    "module_changed": false,
+    "previous_stage": "T1",
+    "current_stage": "T2"
+  },
+  "emergency_action": {},
+  "todo_gaps": [
+    "Cases 6.4.1, 6.4.2, and 6.4.4 still rely on historical flood processes as forecast-proxy inputs.",
+    "Only one forecast-enabled sample is currently connected: 2024072617_with_pred.csv."
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "status": "completed",
+  "operation": "risk",
+  "run_id": "20260425T080436Z-50983198",
+  "run_dir": "H:\\0424\\doc\\restful\\outputs\\huadong\\risk\\risk\\20260425T080436Z-50983198",
+  "output_manifest_path": "H:\\0424\\doc\\restful\\outputs\\huadong\\risk\\risk\\20260425T080436Z-50983198\\manifest.json",
+  "artifact_paths": {
+    "risk": "H:\\0424\\doc\\restful\\outputs\\huadong\\risk\\risk\\20260425T080436Z-50983198\\risk.json", // 风险分析主结果
+    "summary": "H:\\0424\\doc\\restful\\outputs\\huadong\\risk\\risk\\20260425T080436Z-50983198\\summary.txt",
+    "manifest": "H:\\0424\\doc\\restful\\outputs\\huadong\\risk\\risk\\20260425T080436Z-50983198\\manifest.json"
+  },
+  "small_summary": "Highest exceedance risk: flood (1.00)."
+}

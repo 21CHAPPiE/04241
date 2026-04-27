@@ -1,0 +1,9 @@
+{
+  "event_csv_path": "H:\\0424\\TanKengCode\\data\\flood_event\\2024072617.csv", // 事件数据
+  "reservoir_config_path": null, // 水库配置
+  "horizon_hours": 0, // 优化时域；0 表示用默认窗口
+  "requested_module_type": "", // 指定模块类型；空字符串表示不强制指定
+  "min_flow": 50.0, // 最小流量约束
+  "max_flow": 0.0, // 最大流量约束；0 表示不额外限制
+  "control_interval_seconds": 0 // 控制时间步；0 表示默认
+}

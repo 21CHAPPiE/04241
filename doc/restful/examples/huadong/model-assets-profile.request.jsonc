@@ -1,0 +1,4 @@
+{
+  "output_root": "H:\\0424\\doc\\restful\\outputs\\huadong\\assets", // 模型资产概况输出目录
+  "options": {} // 可扩展参数；通常为空
+}

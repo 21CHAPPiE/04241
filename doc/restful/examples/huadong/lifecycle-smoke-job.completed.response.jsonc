@@ -1,0 +1,30 @@
+{
+  "job_id": "life1234567890",
+  "status": "completed", // 生命周期 smoke 完成
+  "submitted_at": "2026-04-27T08:12:00+00:00",
+  "started_at": "2026-04-27T08:12:01+00:00",
+  "completed_at": "2026-04-27T08:12:08+00:00",
+  "operation": "lifecycle-smoke",
+  "input": {
+    "dataset_path": "H:\\0424\\HuadongCode\\data\\basin_001_hourly.csv",
+    "file_path": null,
+    "output_root": "H:\\0424\\doc\\restful\\outputs\\huadong\\lifecycle-smoke",
+    "options": {}
+  },
+  "result": {
+    "status": "completed",
+    "operation": "lifecycle-smoke",
+    "run_id": "20260425T080442Z-b6ec171c",
+    "run_dir": "H:\\0424\\doc\\restful\\outputs\\huadong\\lifecycle-smoke\\lifecycle-smoke\\20260425T080442Z-b6ec171c",
+    "output_manifest_path": "H:\\0424\\doc\\restful\\outputs\\huadong\\lifecycle-smoke\\lifecycle-smoke\\20260425T080442Z-b6ec171c\\manifest.json",
+    "artifact_paths": {
+      "model": "H:\\0424\\doc\\restful\\outputs\\huadong\\lifecycle-smoke\\lifecycle-smoke\\20260425T080442Z-b6ec171c\\model.pt", // 训练模型文件
+      "calibration": "H:\\0424\\doc\\restful\\outputs\\huadong\\lifecycle-smoke\\lifecycle-smoke\\20260425T080442Z-b6ec171c\\calibration.json", // 率定结果
+      "hpo": "H:\\0424\\doc\\restful\\outputs\\huadong\\lifecycle-smoke\\lifecycle-smoke\\20260425T080442Z-b6ec171c\\hpo.json", // HPO 结果
+      "summary": "H:\\0424\\doc\\restful\\outputs\\huadong\\lifecycle-smoke\\lifecycle-smoke\\20260425T080442Z-b6ec171c\\summary.txt", // 摘要文本
+      "manifest": "H:\\0424\\doc\\restful\\outputs\\huadong\\lifecycle-smoke\\lifecycle-smoke\\20260425T080442Z-b6ec171c\\manifest.json"
+    },
+    "small_summary": "Lifecycle smoke completed for training, calibration, and HPO."
+  },
+  "error": null
+}

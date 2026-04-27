@@ -1,0 +1,80 @@
+cases:
+  "6.4.1":
+    section_title: "Pre-release trigger and alert demonstration"
+    kind: "pre_release"
+    description: "Use a real flood process as a forecast proxy and decide whether pre-release is needed."
+    default_event: "2024072617.csv"
+    initial_level_m: 157.5
+    flood_limit_level_m: 156.5
+    season: "typhoon"
+    flood_risk: "medium"
+    preferred_modules:
+      - "constant_release"
+      - "inflow_linear_release"
+      - "storage_piecewise_constant_release"
+      - "joint_driven_release"
+    max_event_points: 8
+    downstream_limit_m3s: 14000.0
+    target_level_m: 156.5
+    max_level_m: 161.5
+
+  "6.4.2":
+    section_title: "Release plan generation and comparison demonstration"
+    kind: "plan_compare"
+    description: "Generate candidate release plans and compare them with simulation evidence."
+    default_event: "2024061623.csv"
+    initial_level_m: 160.6
+    flood_limit_level_m: 160.0
+    season: "plum_flood"
+    flood_risk: "high"
+    preferred_modules:
+      - "constant_release"
+      - "inflow_piecewise_constant_release"
+      - "inflow_linear_release"
+      - "joint_driven_release"
+    max_event_points: 10
+    downstream_limit_m3s: 14000.0
+    target_level_m: 160.0
+    max_level_m: 165.27
+
+  "6.4.3":
+    section_title: "Dynamic dispatch update demonstration"
+    kind: "dynamic_update"
+    description: "Update release instructions incrementally as new inflow information arrives."
+    default_event: "2024072617_with_pred.csv"
+    initial_level_m: 156.8
+    flood_limit_level_m: 156.5
+    season: "typhoon"
+    flood_risk: "high"
+    preferred_modules:
+      - "constant_release"
+      - "inflow_piecewise_constant_release"
+      - "inflow_linear_release"
+      - "joint_driven_release"
+    max_event_points: 24
+    downstream_limit_m3s: 14000.0
+    target_level_m: 156.5
+    max_level_m: 161.5
+    stage_windows:
+      - 8
+      - 16
+      - 24
+    prediction_column: "predict"
+
+  "6.4.4":
+    section_title: "Emergency dispatch under communication isolation"
+    kind: "emergency_island"
+    description: "Apply local emergency rules under communication isolation."
+    default_event: "2024061623.csv"
+    initial_level_m: 162.9
+    flood_limit_level_m: 156.5
+    season: "typhoon"
+    flood_risk: "extreme"
+    preferred_modules:
+      - "inflow_piecewise_constant_release"
+      - "inflow_linear_release"
+      - "joint_driven_release"
+    max_event_points: 8
+    downstream_limit_m3s: 14000.0
+    target_level_m: 161.5
+    max_level_m: 169.15

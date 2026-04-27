@@ -1,0 +1,12 @@
+README.md
+pyproject.toml
+gateway/__init__.py
+gateway/app.py
+gateway/server.py
+tests/test_gateway_api.py
+unified_rest_gateway.egg-info/PKG-INFO
+unified_rest_gateway.egg-info/SOURCES.txt
+unified_rest_gateway.egg-info/dependency_links.txt
+unified_rest_gateway.egg-info/entry_points.txt
+unified_rest_gateway.egg-info/requires.txt
+unified_rest_gateway.egg-info/top_level.txt

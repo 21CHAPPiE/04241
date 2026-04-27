@@ -1,0 +1,9 @@
+{
+  "event_csv_path": "H:\\0424\\TanKengCode\\data\\flood_event\\2024072617.csv",
+  "reservoir_config_path": null,
+  "target_outflow": 2283.657, // 目标下泄流量
+  "module_type": "constant_release", // 使用的调度模块类型
+  "module_parameters": {
+    "target_release": 2283.657 // 模块参数
+  }
+}

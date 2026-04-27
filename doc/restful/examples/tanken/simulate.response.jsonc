@@ -1,0 +1,23 @@
+{
+  "scenario_id": "6.4.1",
+  "declared_outflow": 2283.657, // 声明的目标下泄
+  "target_outflow": 2283.657, // 实际仿真使用的目标下泄
+  "module_type": "constant_release",
+  "module_parameters": {
+    "target_release": 2283.657
+  },
+  "max_level_m": 157.5, // 仿真过程中的最高水位
+  "min_level_m": 156.348, // 仿真过程中的最低水位
+  "final_level_m": 156.348, // 末水位
+  "avg_outflow_m3s": 2283.7, // 平均出流
+  "total_steps": 9, // 仿真总步数
+  "snapshots_sample": [
+    {
+      "step": 0, // 第几个时间步
+      "timestamp": "2024-07-26T17:00:00", // 时间戳
+      "level_m": 157.5, // 该步水位
+      "inflow_m3s": 600.0, // 该步入流
+      "outflow_m3s": 2283.7 // 该步出流
+    }
+  ]
+}

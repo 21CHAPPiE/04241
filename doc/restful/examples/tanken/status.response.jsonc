@@ -1,0 +1,28 @@
+{
+  "scenario_id": "6.4.1", // 当前场景编号
+  "current_level_m": 157.5, // 当前库水位（米）
+  "initial_storage_billion_m3": 22.975, // 初始库容（亿立方米）
+  "current_inflow_m3s": 600.0, // 当前入流（立方米/秒）
+  "forecast_inflow_m3s": 600.0, // 当前调度使用的预测入流
+  "dead_level_m": 150.0, // 死水位
+  "normal_level_m": 175.0, // 正常蓄水位
+  "flood_limit_level_m": 156.5, // 汛限水位
+  "design_flood_level_m": 180.0, // 设计洪水位
+  "total_capacity_billion_m3": 39.3, // 总库容
+  "flood_capacity_billion_m3": 22.15, // 防洪库容
+  "season": "typhoon", // 当前季节标签
+  "flood_risk": "medium", // 洪水风险等级
+  "benchmark_preferred_modules": [
+    "constant_release",
+    "inflow_linear_release",
+    "storage_piecewise_constant_release",
+    "joint_driven_release"
+  ],
+  "forecast_sequence_summary": {
+    "step_count": 8, // 预测序列步数
+    "first_inflow_m3s": 600.0, // 首个入流值
+    "max_inflow_m3s": 6700.0, // 序列最大入流
+    "min_inflow_m3s": 600.0 // 序列最小入流
+  },
+  "carry_over_plan": null // 延续性计划；通常为空
+}

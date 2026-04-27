@@ -50,3 +50,12 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# uv / venv environments
+.venv/
+venv/
+.env/
+.envrc
+.uv-cache/
+.uv-python/
+.venv/

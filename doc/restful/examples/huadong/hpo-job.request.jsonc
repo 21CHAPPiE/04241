@@ -1,0 +1,6 @@
+{
+  "dataset_path": "H:\\0424\\HuadongCode\\data\\basin_001_hourly.csv", // 超参数搜索输入数据
+  "file_path": null,
+  "output_root": "H:\\0424\\doc\\restful\\outputs\\huadong\\hpo", // HPO 输出目录
+  "options": {} // 当前通常直接使用默认搜索参数
+}

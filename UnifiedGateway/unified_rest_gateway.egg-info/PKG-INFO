@@ -1,0 +1,41 @@
+Metadata-Version: 2.4
+Name: unified-rest-gateway
+Version: 0.1.0
+Summary: Single FastAPI gateway that mounts the Huadong and Tanken REST services under path prefixes
+Requires-Python: >=3.14
+Description-Content-Type: text/markdown
+Requires-Dist: pydantic>=2.9.0
+Requires-Dist: pydantic-settings>=2.6.0
+Requires-Dist: numpy>=2.0.0
+Requires-Dist: pandas>=2.2.0
+Requires-Dist: scipy>=1.14.0
+Requires-Dist: statsmodels>=0.14.0
+Requires-Dist: scikit-learn>=1.5.0
+Requires-Dist: httpx>=0.27.0
+Requires-Dist: PyYAML>=6.0.0
+Requires-Dist: torch>=2.11.0
+Requires-Dist: pyrrmod>=0.2.3
+Requires-Dist: spotpy>=1.6.7
+Requires-Dist: fastmcp>=3.2.4
+Requires-Dist: agno>=2.6.0
+Requires-Dist: fastapi<1,>=0.136
+Requires-Dist: uvicorn>=0.44.0
+Requires-Dist: pyresops==0.1.0
+Provides-Extra: dev
+Requires-Dist: pytest>=8.0.0; extra == "dev"
+Requires-Dist: pytest-asyncio>=0.24.0; extra == "dev"
+Requires-Dist: httpx>=0.27.0; extra == "dev"
+
+# Unified REST Gateway
+
+Single FastAPI service that mounts:
+
+- `HuadongCode` at `/huadong`
+- `TanKengCode` at `/tanken`
+
+Prepare and start from this directory:
+
+```powershell
+uv sync
+uv run unified-rest
+```

@@ -1,0 +1,40 @@
+{
+  "job_id": "f6e5d4c3b2a1",
+  "status": "completed",
+  "submitted_at": "2026-04-26T08:31:00+00:00",
+  "started_at": "2026-04-26T08:31:01+00:00",
+  "completed_at": "2026-04-26T08:31:10+00:00",
+  "operation": "run-all-cases",
+  "input": {
+    "reservoir_config_path": null,
+    "persist_result": false
+  },
+  "result": {
+    "6.4.1": {
+      "kind": "pre_release", // 预泄触发场景
+      "decision_summary": {
+        "should_pre_release": true, // 是否需要预泄
+        "target_control_level_m": 156.5 // 目标控制水位
+      }
+    },
+    "6.4.2": {
+      "kind": "plan_compare", // 方案比选场景
+      "decision_summary": {
+        "recommended_plan": "Plan B"
+      }
+    },
+    "6.4.3": {
+      "kind": "dynamic_update", // 动态更新场景
+      "decision_summary": {
+        "version_count": 3
+      }
+    },
+    "6.4.4": {
+      "kind": "emergency_island", // 孤岛应急场景
+      "decision_summary": {
+        "current_disposal_level": "162.84m-163.54m"
+      }
+    }
+  },
+  "error": null
+}

@@ -1,0 +1,44 @@
+{
+  "job_id": "a1b2c3d4e5f6",
+  "status": "completed", // 已完成
+  "submitted_at": "2026-04-26T08:30:00+00:00",
+  "started_at": "2026-04-26T08:30:01+00:00",
+  "completed_at": "2026-04-26T08:30:05+00:00",
+  "operation": "run-case:6.4.2",
+  "input": {
+    "case_id": "6.4.2",
+    "event_csv_path": "H:\\0424\\TanKengCode\\data\\flood_event\\2024061623.csv",
+    "reservoir_config_path": null,
+    "persist_result": false
+  },
+  "result": {
+    "case_id": "6.4.2", // 场景编号
+    "section_title": "Release plan generation and comparison demonstration", // 场景标题
+    "kind": "plan_compare", // 场景类型
+    "input_snapshot": {
+      "case_id": "6.4.2",
+      "event_file": "H:\\0424\\TanKengCode\\data\\flood_event\\2024061623.csv",
+      "current_level_m": 160.6
+    },
+    "rule_context": {
+      "control_level_m": 160.0,
+      "downstream_safe_flow_m3s": 14000.0,
+      "max_level_m": 165.27
+    },
+    "decision_summary": {
+      "recommended_plan": "Plan B", // 推荐方案名称
+      "recommended_outflow_m3s": 2283.657, // 推荐出流
+      "recommended_module_type": "constant_release", // 推荐模块类型
+      "applicability": "Suitable for downstream release-plan comparison demonstrations."
+    },
+    "candidate_plans": [], // 候选方案列表；实际运行时通常不为空，这里示意为数组
+    "simulation_evidence": {
+      "optimization_chain": {}
+    },
+    "alerts": [],
+    "instruction_delta": {},
+    "emergency_action": {},
+    "todo_gaps": []
+  },
+  "error": null
+}

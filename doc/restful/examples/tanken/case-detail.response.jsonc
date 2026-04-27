@@ -1,0 +1,26 @@
+{
+  "case_id": "6.4.3",
+  "section_title": "Dynamic dispatch update demonstration", // 动态更新场景标题
+  "kind": "dynamic_update", // 动态更新类场景
+  "description": "Update release instructions incrementally as new inflow information arrives.",
+  "default_event": "2024072617_with_pred.csv",
+  "initial_level_m": 156.8, // 初始库水位
+  "flood_limit_level_m": 156.5, // 汛限水位
+  "target_level_m": 156.5, // 目标控制水位
+  "max_level_m": 161.5, // 最高允许水位
+  "downstream_limit_m3s": 14000.0, // 下游流量限制
+  "preferred_modules": [
+    "constant_release",
+    "inflow_piecewise_constant_release",
+    "inflow_linear_release",
+    "joint_driven_release"
+  ],
+  "prediction_column": "predict", // 该场景使用的预测列
+  "recommended_step_sequence": [
+    "get_tanken_case_status",
+    "query_tanken_dispatch_rules",
+    "optimize_tanken_release_plan",
+    "simulate_tanken_dispatch_program",
+    "evaluate_tanken_dispatch_result"
+  ]
+}

@@ -1,0 +1,347 @@
+{
+  "case_id": "6.4.4",
+  "section_title": "Emergency dispatch under communication isolation",
+  "kind": "emergency_island",
+  "input_snapshot": {
+    "case_id": "6.4.4",
+    "event_file": "E:\\PyCode\\PyResOps\\data\\flood_event\\2024061623.csv",
+    "start_time": "2024-06-16 17:00",
+    "time_step_hours": 3,
+    "record_count": 8,
+    "current_level_m": 162.9,
+    "initial_storage_billion_m3": 27.9,
+    "initial_inflow_m3s": 1792.0,
+    "initial_outflow_m3s": 1980.0,
+    "level_source": "case_override_for_demo"
+  },
+  "data_time_step_hours": 3,
+  "rule_context": {
+    "communication_status": "isolated",
+    "rule_band": "162.84m-163.54m"
+  },
+  "decision_summary": {
+    "current_disposal_level": "162.84m-163.54m",
+    "recommended_outflow_cap_m3s": 9270.0,
+    "generation_paused": false
+  },
+  "candidate_plans": [
+    {
+      "name": "Local emergency release plan",
+      "module_type": "constant_release",
+      "module_parameters": {},
+      "declared_outflow_m3s": 2508.8,
+      "simulation": {
+        "scenario_id": "6.4.4",
+        "declared_outflow": 2508.7999999999997,
+        "target_outflow": 2508.7999999999997,
+        "module_type": "constant_release",
+        "module_parameters": {
+          "target_release": 2508.7999999999997
+        },
+        "max_level_m": 163.07,
+        "min_level_m": 162.823,
+        "final_level_m": 162.935,
+        "avg_outflow_m3s": 2508.8,
+        "total_steps": 9,
+        "snapshots_sample": [
+          {
+            "step": 0,
+            "timestamp": "2024-06-16T17:00:00",
+            "level_m": 162.9,
+            "inflow_m3s": 1792.0,
+            "outflow_m3s": 2508.8
+          },
+          {
+            "step": 1,
+            "timestamp": "2024-06-16T20:00:00",
+            "level_m": 162.823,
+            "inflow_m3s": 2862.6,
+            "outflow_m3s": 2508.8
+          },
+          {
+            "step": 2,
+            "timestamp": "2024-06-16T23:00:00",
+            "level_m": 162.861,
+            "inflow_m3s": 3441.8,
+            "outflow_m3s": 2508.8
+          },
+          {
+            "step": 3,
+            "timestamp": "2024-06-17T02:00:00",
+            "level_m": 162.962,
+            "inflow_m3s": 3196.3,
+            "outflow_m3s": 2508.8
+          },
+          {
+            "step": 4,
+            "timestamp": "2024-06-17T05:00:00",
+            "level_m": 163.036,
+            "inflow_m3s": 2828.3,
+            "outflow_m3s": 2508.8
+          },
+          {
+            "step": 5,
+            "timestamp": "2024-06-17T08:00:00",
+            "level_m": 163.07,
+            "inflow_m3s": 2389.8,
+            "outflow_m3s": 2508.8
+          },
+          {
+            "step": 6,
+            "timestamp": "2024-06-17T11:00:00",
+            "level_m": 163.057,
+            "inflow_m3s": 2071.5,
+            "outflow_m3s": 2508.8
+          },
+          {
+            "step": 7,
+            "timestamp": "2024-06-17T14:00:00",
+            "level_m": 163.01,
+            "inflow_m3s": 1812.7,
+            "outflow_m3s": 2508.8
+          },
+          {
+            "step": 8,
+            "timestamp": "2024-06-17T17:00:00",
+            "level_m": 162.935,
+            "inflow_m3s": 1812.7,
+            "outflow_m3s": 2508.8
+          }
+        ]
+      },
+      "evaluation": {
+        "scenario_id": "6.4.4",
+        "declared_outflow": 2508.7999999999997,
+        "target_outflow": 2508.7999999999997,
+        "module_type": "constant_release",
+        "module_parameters": {
+          "target_release": 2508.7999999999997
+        },
+        "final_level_m": 162.935,
+        "target_level_m": 161.5,
+        "overall_score": 71.2094,
+        "flood_control_score": 86.0206,
+        "water_supply_score": 75.6452,
+        "power_generation_score": 17.9443,
+        "ecological_score": 100.0,
+        "constraint_violations_count": 0,
+        "constraint_violations": []
+      },
+      "downstream_safety": {
+        "safe": true,
+        "max_flow": 3197.2,
+        "safe_flow": 14000.0,
+        "exceedance_count": 0,
+        "exceedances": [],
+        "max_exceedance": 0.0
+      },
+      "plugin_results": {
+        "tankan_routed": [
+          2508.7999999999997,
+          2508.7999999999997,
+          2508.7999999999997,
+          2508.7999999999997,
+          2508.7999999999997,
+          2508.7999999999997,
+          2508.7999999999997,
+          2508.7999999999997
+        ],
+        "interval_flow": [
+          372.5,
+          572.52,
+          688.36,
+          639.26,
+          565.66,
+          477.96,
+          414.3,
+          362.54
+        ],
+        "hecheng_total": [
+          2881.2999999999997,
+          3081.3199999999997,
+          3197.16,
+          3148.0599999999995,
+          3074.4599999999996,
+          2986.7599999999998,
+          2923.1,
+          2871.3399999999997
+        ],
+        "downstream_safety": {
+          "safe": true,
+          "max_flow": 3197.2,
+          "safe_flow": 14000.0,
+          "exceedance_count": 0,
+          "exceedances": [],
+          "max_exceedance": 0.0
+        }
+      }
+    }
+  ],
+  "simulation_evidence": {
+    "emergency_candidate": {
+      "name": "Local emergency release plan",
+      "module_type": "constant_release",
+      "module_parameters": {},
+      "declared_outflow_m3s": 2508.8,
+      "simulation": {
+        "scenario_id": "6.4.4",
+        "declared_outflow": 2508.7999999999997,
+        "target_outflow": 2508.7999999999997,
+        "module_type": "constant_release",
+        "module_parameters": {
+          "target_release": 2508.7999999999997
+        },
+        "max_level_m": 163.07,
+        "min_level_m": 162.823,
+        "final_level_m": 162.935,
+        "avg_outflow_m3s": 2508.8,
+        "total_steps": 9,
+        "snapshots_sample": [
+          {
+            "step": 0,
+            "timestamp": "2024-06-16T17:00:00",
+            "level_m": 162.9,
+            "inflow_m3s": 1792.0,
+            "outflow_m3s": 2508.8
+          },
+          {
+            "step": 1,
+            "timestamp": "2024-06-16T20:00:00",
+            "level_m": 162.823,
+            "inflow_m3s": 2862.6,
+            "outflow_m3s": 2508.8
+          },
+          {
+            "step": 2,
+            "timestamp": "2024-06-16T23:00:00",
+            "level_m": 162.861,
+            "inflow_m3s": 3441.8,
+            "outflow_m3s": 2508.8
+          },
+          {
+            "step": 3,
+            "timestamp": "2024-06-17T02:00:00",
+            "level_m": 162.962,
+            "inflow_m3s": 3196.3,
+            "outflow_m3s": 2508.8
+          },
+          {
+            "step": 4,
+            "timestamp": "2024-06-17T05:00:00",
+            "level_m": 163.036,
+            "inflow_m3s": 2828.3,
+            "outflow_m3s": 2508.8
+          },
+          {
+            "step": 5,
+            "timestamp": "2024-06-17T08:00:00",
+            "level_m": 163.07,
+            "inflow_m3s": 2389.8,
+            "outflow_m3s": 2508.8
+          },
+          {
+            "step": 6,
+            "timestamp": "2024-06-17T11:00:00",
+            "level_m": 163.057,
+            "inflow_m3s": 2071.5,
+            "outflow_m3s": 2508.8
+          },
+          {
+            "step": 7,
+            "timestamp": "2024-06-17T14:00:00",
+            "level_m": 163.01,
+            "inflow_m3s": 1812.7,
+            "outflow_m3s": 2508.8
+          },
+          {
+            "step": 8,
+            "timestamp": "2024-06-17T17:00:00",
+            "level_m": 162.935,
+            "inflow_m3s": 1812.7,
+            "outflow_m3s": 2508.8
+          }
+        ]
+      },
+      "evaluation": {
+        "scenario_id": "6.4.4",
+        "declared_outflow": 2508.7999999999997,
+        "target_outflow": 2508.7999999999997,
+        "module_type": "constant_release",
+        "module_parameters": {
+          "target_release": 2508.7999999999997
+        },
+        "final_level_m": 162.935,
+        "target_level_m": 161.5,
+        "overall_score": 71.2094,
+        "flood_control_score": 86.0206,
+        "water_supply_score": 75.6452,
+        "power_generation_score": 17.9443,
+        "ecological_score": 100.0,
+        "constraint_violations_count": 0,
+        "constraint_violations": []
+      },
+      "downstream_safety": {
+        "safe": true,
+        "max_flow": 3197.2,
+        "safe_flow": 14000.0,
+        "exceedance_count": 0,
+        "exceedances": [],
+        "max_exceedance": 0.0
+      },
+      "plugin_results": {
+        "tankan_routed": [
+          2508.7999999999997,
+          2508.7999999999997,
+          2508.7999999999997,
+          2508.7999999999997,
+          2508.7999999999997,
+          2508.7999999999997,
+          2508.7999999999997,
+          2508.7999999999997
+        ],
+        "interval_flow": [
+          372.5,
+          572.52,
+          688.36,
+          639.26,
+          565.66,
+          477.96,
+          414.3,
+          362.54
+        ],
+        "hecheng_total": [
+          2881.2999999999997,
+          3081.3199999999997,
+          3197.16,
+          3148.0599999999995,
+          3074.4599999999996,
+          2986.7599999999998,
+          2923.1,
+          2871.3399999999997
+        ],
+        "downstream_safety": {
+          "safe": true,
+          "max_flow": 3197.2,
+          "safe_flow": 14000.0,
+          "exceedance_count": 0,
+          "exceedances": [],
+          "max_exceedance": 0.0
+        }
+      }
+    }
+  },
+  "alerts": [
+    {
+      "type": "communication_island",
+      "triggered": true,
+      "message": "Local emergency rule mode is active."
+    }
+  ],
+  "instruction_delta": {},
+  "emergency_action": {
+    "action_summary": "Cap release at 9270 m3/s."
+  },
+  "todo_gaps": [
+    "Cases 6.4.1, 6.4.2, and 6.4.4 still rely on historical flood processes as forecast-proxy inputs."
+  ]
+}

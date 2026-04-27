@@ -1,0 +1,18 @@
+{
+  "scenario_id": "6.4.1",
+  "declared_outflow": 2283.657,
+  "target_outflow": 2283.657,
+  "module_type": "constant_release",
+  "module_parameters": {
+    "target_release": 2283.657
+  },
+  "final_level_m": 156.348, // 仿真末水位
+  "target_level_m": 156.5, // 目标控制水位
+  "overall_score": 0.91, // 综合评分
+  "flood_control_score": 0.95, // 防洪评分
+  "water_supply_score": 0.88, // 供水评分
+  "power_generation_score": 0.84, // 发电评分
+  "ecological_score": 1.0, // 生态评分
+  "constraint_violations_count": 0, // 约束违例数量
+  "constraint_violations": [] // 约束违例详情
+}

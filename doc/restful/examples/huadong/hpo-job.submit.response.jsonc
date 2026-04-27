@@ -1,0 +1,16 @@
+{
+  "job_id": "hpo1234567890", // HPO 任务编号
+  "status": "queued", // 当前状态
+  "submitted_at": "2026-04-27T08:11:00+00:00",
+  "started_at": null,
+  "completed_at": null,
+  "operation": "hpo", // 任务类型：超参数优化
+  "input": {
+    "dataset_path": "H:\\0424\\HuadongCode\\data\\basin_001_hourly.csv",
+    "file_path": null,
+    "output_root": "H:\\0424\\doc\\restful\\outputs\\huadong\\hpo",
+    "options": {}
+  },
+  "result": null,
+  "error": null
+}

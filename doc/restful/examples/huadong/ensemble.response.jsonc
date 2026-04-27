@@ -1,0 +1,14 @@
+{
+  "status": "completed",
+  "operation": "ensemble",
+  "run_id": "20260425T080425Z-cbd9c3f3",
+  "run_dir": "H:\\0424\\doc\\restful\\outputs\\huadong\\ensemble\\ensemble\\20260425T080425Z-cbd9c3f3",
+  "output_manifest_path": "H:\\0424\\doc\\restful\\outputs\\huadong\\ensemble\\ensemble\\20260425T080425Z-cbd9c3f3\\manifest.json",
+  "artifact_paths": {
+    "ensemble": "H:\\0424\\doc\\restful\\outputs\\huadong\\ensemble\\ensemble\\20260425T080425Z-cbd9c3f3\\ensemble.csv", // 集成结果 CSV
+    "summary": "H:\\0424\\doc\\restful\\outputs\\huadong\\ensemble\\ensemble\\20260425T080425Z-cbd9c3f3\\summary.txt",
+    "ensemble_details": "H:\\0424\\doc\\restful\\outputs\\huadong\\ensemble\\ensemble\\20260425T080425Z-cbd9c3f3\\ensemble_details.json", // 集成细节 JSON
+    "manifest": "H:\\0424\\doc\\restful\\outputs\\huadong\\ensemble\\ensemble\\20260425T080425Z-cbd9c3f3\\manifest.json"
+  },
+  "small_summary": "Ensembled 4 models using bma; consistency=0.50."
+}

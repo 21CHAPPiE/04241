@@ -1,0 +1,29 @@
+{
+  "job_id": "8d8b8a8f12345678",
+  "status": "completed", // 任务已完成
+  "submitted_at": "2026-04-25T17:20:00+00:00",
+  "started_at": "2026-04-25T17:20:01+00:00",
+  "completed_at": "2026-04-25T17:20:10+00:00",
+  "operation": "training",
+  "input": {
+    "dataset_path": "H:\\0424\\HuadongCode\\data\\basin_001_hourly.csv",
+    "file_path": null,
+    "output_root": "H:\\0424\\doc\\restful\\outputs\\huadong\\training",
+    "options": {}
+  },
+  "result": {
+    "status": "completed", // 这里开始是最终业务结果
+    "operation": "training",
+    "run_id": "20260425T080440Z-2b7b7e61",
+    "run_dir": "H:\\0424\\doc\\restful\\outputs\\huadong\\training\\training\\20260425T080440Z-2b7b7e61",
+    "output_manifest_path": "H:\\0424\\doc\\restful\\outputs\\huadong\\training\\training\\20260425T080440Z-2b7b7e61\\manifest.json",
+    "artifact_paths": {
+      "model": "H:\\0424\\doc\\restful\\outputs\\huadong\\training\\training\\20260425T080440Z-2b7b7e61\\model.pt", // 训练模型文件
+      "summary": "H:\\0424\\doc\\restful\\outputs\\huadong\\training\\training\\20260425T080440Z-2b7b7e61\\summary.txt",
+      "training": "H:\\0424\\doc\\restful\\outputs\\huadong\\training\\training\\20260425T080440Z-2b7b7e61\\training.json", // 训练摘要 JSON
+      "manifest": "H:\\0424\\doc\\restful\\outputs\\huadong\\training\\training\\20260425T080440Z-2b7b7e61\\manifest.json"
+    },
+    "small_summary": "Training smoke completed on 146732 rows; RMSE=218.23."
+  },
+  "error": null
+}

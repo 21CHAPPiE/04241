@@ -1,0 +1,4 @@
+{
+  "reservoir_config_path": null, // 可选水库配置
+  "persist_result": false // 是否把所有结果落盘
+}

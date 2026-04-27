@@ -1,0 +1,6 @@
+{
+  "dataset_path": "H:\\0424\\HuadongCode\\data\\basin_001_hourly.csv", // 生命周期 smoke 输入数据
+  "file_path": null,
+  "output_root": "H:\\0424\\doc\\restful\\outputs\\huadong\\lifecycle-smoke", // 生命周期 smoke 输出目录
+  "options": {}
+}

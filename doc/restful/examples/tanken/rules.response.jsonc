@@ -1,0 +1,26 @@
+{
+  "scenario_id": "6.4.1",
+  "name": "Pre-release trigger and alert demonstration", // 场景名称
+  "description": "Use a real flood process as a forecast proxy and decide whether pre-release is needed.",
+  "hard_constraints": {
+    "flood_limit_level_m": 156.5, // 汛限水位约束
+    "dead_level_m": 150.0, // 死水位约束
+    "normal_level_m": 175.0, // 正常蓄水位参考
+    "max_level_m": 161.5, // 最大允许水位
+    "design_flood_level_m": 180.0, // 设计洪水位
+    "ecological_min_flow_m3s": 50.0, // 生态最小下泄
+    "downstream_limit_m3s": 14000.0 // 下游流量约束
+  },
+  "objectives": {
+    "target_level": 156.5 // 目标控制水位
+  },
+  "task_constraints": {
+    "target_level": 156.5,
+    "target_tolerance": 0.3 // 允许偏差
+  },
+  "eco_min_flow_m3s": 50.0,
+  "downstream_safe_flow_m3s": 14000.0,
+  "deadline_hours": 24.0, // 调度窗口时长
+  "target_level_m": 156.5,
+  "window_hours": 24.0 // 当前优化窗口
+}

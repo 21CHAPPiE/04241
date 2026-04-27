@@ -1,0 +1,10 @@
+{
+  "dataset_path": null,
+  "file_path": "H:\\0424\\doc\\restful\\outputs\\huadong\\correction\\...\\corrected.csv", // correction 输出 CSV
+  "output_root": "H:\\0424\\doc\\restful\\outputs\\huadong\\warning",
+  "options": {
+    "forecast_column": "corrected_forecast", // 预警分析使用的列
+    "warning_threshold": 300.0, // 洪水预警阈值
+    "lead_time_hours": 24 // 提前量
+  }
+}

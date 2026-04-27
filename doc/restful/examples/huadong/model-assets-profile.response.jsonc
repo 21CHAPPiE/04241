@@ -1,0 +1,14 @@
+{
+  "status": "completed",
+  "operation": "model-asset-profile",
+  "run_id": "20260425T080344Z-51de52b0",
+  "run_dir": "H:\\0424\\doc\\restful\\outputs\\huadong\\assets\\model-asset-profile\\20260425T080344Z-51de52b0",
+  "output_manifest_path": "H:\\0424\\doc\\restful\\outputs\\huadong\\assets\\model-asset-profile\\20260425T080344Z-51de52b0\\manifest.json",
+  "artifact_paths": {
+    "model_assets_profile": "H:\\0424\\doc\\restful\\outputs\\huadong\\assets\\model-asset-profile\\20260425T080344Z-51de52b0\\model_assets_profile.json", // 资产概况主文件
+    "summary": "H:\\0424\\doc\\restful\\outputs\\huadong\\assets\\model-asset-profile\\20260425T080344Z-51de52b0\\summary.txt",
+    "model_assets_profile_summary": "H:\\0424\\doc\\restful\\outputs\\huadong\\assets\\model-asset-profile\\20260425T080344Z-51de52b0\\model_assets_profile_summary.json",
+    "manifest": "H:\\0424\\doc\\restful\\outputs\\huadong\\assets\\model-asset-profile\\20260425T080344Z-51de52b0\\manifest.json"
+  },
+  "small_summary": "Loaded model asset profile."
+}

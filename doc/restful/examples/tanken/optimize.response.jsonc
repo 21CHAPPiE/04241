@@ -1,0 +1,25 @@
+{
+  "scenario_id": "6.4.1",
+  "program_id": "6.4.1_optimized", // 本次优化得到的程序编号
+  "selected_module_type": "constant_release", // 选中的调度模块
+  "selected_module_parameters": {
+    "target_release": 2283.657 // 该模块的目标下泄参数
+  },
+  "feasible_solution_found": true, // 是否找到可行解
+  "fallback_applied": false, // 是否触发回退方案
+  "requested_module_type": null, // 如果调用方强制指定了模块，这里会反映出来
+  "horizon_hours": null, // 实际时域；默认情况下可能为 null
+  "control_interval_seconds": null, // 实际控制步长；默认情况下可能为 null
+  "final_level_m": 156.348, // 仿真末水位
+  "avg_release_m3s": 2283.657, // 平均下泄流量
+  "avg_outflow_m3s": 2283.657, // 平均出流
+  "release_values_m3s": [
+    2283.657,
+    2283.657
+  ], // 下泄序列
+  "min_release_m3s": 2283.657, // 序列最小下泄
+  "max_release_m3s": 2283.657, // 序列最大下泄
+  "family_attempts": [
+    "constant_release"
+  ] // 尝试过的模块族
+}

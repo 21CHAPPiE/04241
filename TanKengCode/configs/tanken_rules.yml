@@ -1,0 +1,378 @@
+global_defaults:
+  eco_min_flow_m3s: 50.0
+  downstream_safe_flow_m3s: 14000.0
+
+stage_rules:
+  - id: "tanken_transition_severe"
+    name: "Transition stage with severe weather"
+    priority: 300
+    stop_on_match: true
+    metadata:
+      rule_type: "context_expression"
+    condition:
+      op: "all"
+      items:
+        - left: "directives.month"
+          op: "eq"
+          right_value: 7
+        - left: "directives.day"
+          op: "lte"
+          right_value: 15
+        - left: "directives.severe_weather"
+          op: "eq"
+          right_value: true
+    actions:
+      - action_type: "emit_event"
+        parameters:
+          stage: "transition"
+          control_level_m: 156.5
+          release_warning_level_m: 156.0
+          must_reduce_to_m: 156.5
+
+  - id: "tanken_transition_normal"
+    name: "Transition stage without severe weather"
+    priority: 250
+    stop_on_match: true
+    metadata:
+      rule_type: "context_expression"
+    condition:
+      op: "all"
+      items:
+        - left: "directives.month"
+          op: "eq"
+          right_value: 7
+        - left: "directives.day"
+          op: "lte"
+          right_value: 15
+    actions:
+      - action_type: "emit_event"
+        parameters:
+          stage: "transition"
+          control_level_m: 160.0
+          release_warning_level_m: 159.5
+          must_reduce_to_m: 160.0
+
+  - id: "tanken_typhoon"
+    name: "Typhoon flood season"
+    priority: 200
+    stop_on_match: true
+    metadata:
+      rule_type: "context_expression"
+    condition:
+      left: "directives.month"
+      op: "in"
+      right_value: [7, 8, 9]
+    actions:
+      - action_type: "emit_event"
+        parameters:
+          stage: "typhoon"
+          control_level_m: 156.5
+          release_warning_level_m: 156.0
+          must_reduce_to_m: 156.5
+
+  - id: "tanken_plum_flood"
+    name: "Plum flood season"
+    priority: 150
+    stop_on_match: true
+    metadata:
+      rule_type: "context_expression"
+    condition:
+      left: "directives.month"
+      op: "in"
+      right_value: [4, 5, 6]
+    actions:
+      - action_type: "emit_event"
+        parameters:
+          stage: "plum_flood"
+          control_level_m: 160.0
+          release_warning_level_m: 159.5
+          must_reduce_to_m: 160.0
+
+  - id: "tanken_non_flood"
+    name: "Non-flood season default"
+    priority: 10
+    stop_on_match: true
+    metadata:
+      rule_type: "context_expression"
+    condition:
+      op: "always"
+    actions:
+      - action_type: "emit_event"
+        parameters:
+          stage: "non_flood"
+          control_level_m: 160.0
+          release_warning_level_m: 159.5
+          must_reduce_to_m: 160.0
+
+pre_release_rules:
+  - id: "tanken_transition_force_pre_release"
+    name: "Transition severe-weather forced pre-release"
+    priority: 300
+    stop_on_match: true
+    metadata:
+      rule_type: "context_expression"
+    condition:
+      op: "all"
+      items:
+        - left: "directives.stage"
+          op: "eq"
+          right_value: "transition"
+        - left: "directives.severe_weather"
+          op: "eq"
+          right_value: true
+    actions:
+      - action_type: "emit_event"
+        parameters:
+          should_pre_release: true
+          trigger_reason: "transition_with_severe_weather"
+          next_step: "Generate release plan"
+
+  - id: "tanken_forecast_max_exceeds_control"
+    name: "Predicted max level exceeds control level"
+    priority: 200
+    stop_on_match: true
+    metadata:
+      rule_type: "context_expression"
+    condition:
+      left: "forecast.predicted_max_level_m"
+      op: "gt"
+      right_from: "directives.control_level_m"
+    actions:
+      - action_type: "emit_event"
+        parameters:
+          should_pre_release: true
+          trigger_reason: "predicted_max_exceeds_control_level"
+          next_step: "Generate release plan"
+
+  - id: "tanken_monitor_default"
+    name: "Default keep monitoring"
+    priority: 10
+    stop_on_match: true
+    metadata:
+      rule_type: "context_expression"
+    condition:
+      op: "always"
+    actions:
+      - action_type: "emit_event"
+        parameters:
+          should_pre_release: false
+          trigger_reason: "predicted_max_within_control_level"
+          next_step: "Continue monitoring"
+
+alert_rules:
+  high_water:
+    - id: "tanken_high_water_on"
+      name: "High water warning"
+      priority: 100
+      stop_on_match: true
+      metadata:
+        rule_type: "context_expression"
+      condition:
+        op: "all"
+        items:
+          - left: "state.current_level_m"
+            op: "gte"
+            right_value: 160.0
+          - left: "forecast.predicted_max_level_m"
+            op: "gte"
+            right_value: 161.5
+      actions:
+        - action_type: "emit_event"
+          parameters:
+            type: "high_water_level"
+            triggered: true
+            message: "Current level is above 160.00m and predicted max level reaches 161.50m."
+    - id: "tanken_high_water_off"
+      name: "High water warning default false"
+      priority: 1
+      stop_on_match: true
+      metadata:
+        rule_type: "context_expression"
+      condition:
+        op: "always"
+      actions:
+        - action_type: "emit_event"
+          parameters:
+            type: "high_water_level"
+            triggered: false
+
+  release_warning:
+    - id: "tanken_release_warning_on"
+      name: "Flood release warning"
+      priority: 100
+      stop_on_match: true
+      metadata:
+        rule_type: "context_expression"
+      condition:
+        op: "all"
+        items:
+          - left: "state.current_level_m"
+            op: "gte"
+            right_from: "directives.release_warning_level_m"
+          - left: "directives.should_pre_release"
+            op: "eq"
+            right_value: true
+      actions:
+        - action_type: "emit_event"
+          parameters:
+            type: "flood_release_warning"
+            triggered: true
+            lead_time_hours: 1
+            message: "Level is near the flood-limit warning threshold and pre-release has been triggered."
+    - id: "tanken_release_warning_off"
+      name: "Flood release warning default false"
+      priority: 1
+      stop_on_match: true
+      metadata:
+        rule_type: "context_expression"
+      condition:
+        op: "always"
+      actions:
+        - action_type: "emit_event"
+          parameters:
+            type: "flood_release_warning"
+            triggered: false
+
+emergency_band_rules:
+  - id: "tanken_band_below_161_50"
+    name: "Emergency band below 161.50m"
+    priority: 600
+    stop_on_match: true
+    metadata:
+      rule_type: "context_expression"
+    condition:
+      left: "state.current_level_m"
+      op: "lt"
+      right_value: 161.5
+    actions:
+      - action_type: "emit_event"
+        parameters:
+          band: "<161.50m"
+          max_release_m3s: 400.0
+          generation_paused: false
+          action: "No emergency spill beyond generation flow."
+
+  - id: "tanken_band_161_50_162_84"
+    name: "Emergency band 161.50m-162.84m"
+    priority: 500
+    stop_on_match: true
+    metadata:
+      rule_type: "context_expression"
+    condition:
+      op: "all"
+      items:
+        - left: "state.current_level_m"
+          op: "gte"
+          right_value: 161.5
+        - left: "state.current_level_m"
+          op: "lt"
+          right_value: 162.84
+    actions:
+      - action_type: "emit_event"
+        parameters:
+          band: "161.50m-162.84m"
+          max_release_m3s: 8630.0
+          generation_paused: false
+          action: "Cap release at 8630 m3/s."
+
+  - id: "tanken_band_162_84_163_54"
+    name: "Emergency band 162.84m-163.54m"
+    priority: 400
+    stop_on_match: true
+    metadata:
+      rule_type: "context_expression"
+    condition:
+      op: "all"
+      items:
+        - left: "state.current_level_m"
+          op: "gte"
+          right_value: 162.84
+        - left: "state.current_level_m"
+          op: "lt"
+          right_value: 163.54
+    actions:
+      - action_type: "emit_event"
+        parameters:
+          band: "162.84m-163.54m"
+          max_release_m3s: 9270.0
+          generation_paused: false
+          action: "Cap release at 9270 m3/s."
+
+  - id: "tanken_band_163_54_164_30"
+    name: "Emergency band 163.54m-164.30m"
+    priority: 300
+    stop_on_match: true
+    metadata:
+      rule_type: "context_expression"
+    condition:
+      op: "all"
+      items:
+        - left: "state.current_level_m"
+          op: "gte"
+          right_value: 163.54
+        - left: "state.current_level_m"
+          op: "lt"
+          right_value: 164.30
+    actions:
+      - action_type: "emit_event"
+        parameters:
+          band: "163.54m-164.30m"
+          max_release_m3s: 9970.0
+          generation_paused: false
+          action: "Cap release at 9970 m3/s."
+
+  - id: "tanken_band_164_30_165_27"
+    name: "Emergency band 164.30m-165.27m"
+    priority: 200
+    stop_on_match: true
+    metadata:
+      rule_type: "context_expression"
+    condition:
+      op: "all"
+      items:
+        - left: "state.current_level_m"
+          op: "gte"
+          right_value: 164.30
+        - left: "state.current_level_m"
+          op: "lt"
+          right_value: 165.27
+    actions:
+      - action_type: "emit_event"
+        parameters:
+          band: "164.30m-165.27m"
+          max_release_m3s: 10900.0
+          generation_paused: false
+          action: "Cap release at 10900 m3/s."
+
+  - id: "tanken_band_above_165_27"
+    name: "Emergency band above 165.27m"
+    priority: 100
+    stop_on_match: true
+    metadata:
+      rule_type: "context_expression"
+    condition:
+      left: "state.current_level_m"
+      op: "gte"
+      right_value: 165.27
+    actions:
+      - action_type: "emit_event"
+        parameters:
+          band: ">=165.27m"
+          max_release_m3s: null
+          generation_paused: true
+          action: "Open spillway fully and stop generation."
+
+plan_compare_templates:
+  conservative:
+    name: "Plan A - Conservative"
+    mode: "scaled_release"
+    optimized_release_multiplier: 1.15
+    inflow_multiplier: 1.10
+  balanced:
+    name: "Plan B - Balanced"
+    mode: "optimization_selected"
+  constrained:
+    name: "Plan C - Constraint-first"
+    mode: "scaled_release"
+    optimized_release_multiplier: 0.85
+    min_release_m3s: 50.0

@@ -1,0 +1,12 @@
+{
+  "status": "ok", // 网关健康状态
+  "service": "unified-rest", // 统一网关服务名
+  "available_services": [
+    "huadong",
+    "tanken"
+  ],
+  "route_prefixes": {
+    "huadong": "/huadong",
+    "tanken": "/tanken"
+  }
+}

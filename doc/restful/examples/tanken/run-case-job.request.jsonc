@@ -1,0 +1,5 @@
+{
+  "event_csv_path": "H:\\0424\\TanKengCode\\data\\flood_event\\2024061623.csv", // 场景运行使用的事件文件
+  "reservoir_config_path": null, // 可选水库配置
+  "persist_result": false // 是否将结果持久化到 results 目录
+}
