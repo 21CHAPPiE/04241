@@ -1,0 +1,5 @@
+[console_scripts]
+huadong-agno-capture = agents.capture_huadong_workflow_io:main
+huadong-agno-workflow = agents.run_huadong_workflow:main
+huadong-mcp = app.server:main
+huadong-rest = app.rest_server:main
